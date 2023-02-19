@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,5 +51,26 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Trirong-Black.ttf</string>
+		<string>Trirong-BlackItalic.ttf</string>
+		<string>Trirong-Bold.ttf</string>
+		<string>Trirong-BoldItalic.ttf</string>
+		<string>Trirong-ExtraBold.ttf</string>
+		<string>Trirong-ExtraBoldItalic.ttf</string>
+		<string>Trirong-ExtraLight.ttf</string>
+		<string>Trirong-ExtraLightItalic.ttf</string>
+		<string>Trirong-Italic.ttf</string>
+		<string>Trirong-Light.ttf</string>
+		<string>Trirong-LightItalic.ttf</string>
+		<string>Trirong-Medium.ttf</string>
+		<string>Trirong-MediumItalic.ttf</string>
+		<string>Trirong-Regular.ttf</string>
+		<string>Trirong-SemiBold.ttf</string>
+		<string>Trirong-SemiBoldItalic.ttf</string>
+		<string>Trirong-Thin.ttf</string>
+		<string>Trirong-ThinItalic.ttf</string>
+	</array>
 </dict>
 </plist>

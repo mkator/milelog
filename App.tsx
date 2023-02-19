@@ -1,12 +1,12 @@
 import React from 'react'
 import {SafeAreaView, StyleSheet} from 'react-native'
-import Home from './src/screens/Home'
+import BottomTabNavigator from './src/navigators/BottomTabNavigator'
 import {colors} from './src/styles'
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Home />
+      <BottomTabNavigator />
     </SafeAreaView>
   )
 }

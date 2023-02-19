@@ -1,0 +1,81 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/OFL.txt",
+      "sha1": "e1ab9123a5fabbf4e7a6f3ea2fff504fbe351c95"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-Black.ttf",
+      "sha1": "0f1d798082adecb23f7c3ac08cf41344e9491983"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-BlackItalic.ttf",
+      "sha1": "9189d8c5f5829fe4fe2569988b6f25670396eb9f"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-Bold.ttf",
+      "sha1": "0ef8072bd734cf71891a49c5929300e0d9396028"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-BoldItalic.ttf",
+      "sha1": "1eccbfb44702f3791378585cf075d14de90fc8fc"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-ExtraBold.ttf",
+      "sha1": "763d8b581a4ac7e4d68a2afe7bab8ec4ecc373ee"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-ExtraBoldItalic.ttf",
+      "sha1": "5c58e100c65d40a71a706b61013f61a2da0a3c9a"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-ExtraLight.ttf",
+      "sha1": "2f254f4f4e2b7cbe2f3e43da8bac8f3df85e5724"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-ExtraLightItalic.ttf",
+      "sha1": "4358d1a700317016f5007e5529a5e9e4dcc0681d"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-Italic.ttf",
+      "sha1": "d4d5df295315de387d397f45bb20dc842d306f92"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-Light.ttf",
+      "sha1": "2a2ae2757876cc591072357c9ab83bc1f7daf331"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-LightItalic.ttf",
+      "sha1": "5c4538ebbbacc81a4db33e44d90730a57b2d9e93"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-Medium.ttf",
+      "sha1": "b406ff170390d48ae1814870135d5f62213961fb"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-MediumItalic.ttf",
+      "sha1": "a6a9303ed5334d149570b151e63de911b4f955e0"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-Regular.ttf",
+      "sha1": "2994e4b790eaec37e82972815490e338c4498586"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-SemiBold.ttf",
+      "sha1": "2aed9378235c3965bc8de250aa2dde6451ce6d95"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-SemiBoldItalic.ttf",
+      "sha1": "331590db95bd21f8bd000f70aa2aae6c4de46bf9"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-Thin.ttf",
+      "sha1": "4036248853fd9f9f783955c7363d93dc3b55a8ea"
+    },
+    {
+      "path": "src/assets/fonts/Trirong-ThinItalic.ttf",
+      "sha1": "effa349a94e2a2e7fe391d1f75c626c3d7ecaadd"
+    }
+  ]
+}
