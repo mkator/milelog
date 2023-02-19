@@ -25,10 +25,12 @@
 		3A50DAD8CD5E422498F0BBB6 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A706674050AA4DEA9BF3D9D7 /* FontAwesome5_Regular.ttf */; };
 		3A8B9E3CFD0F44D6808613B4 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1662BF7B5E1344E4A5D0E397 /* SimpleLineIcons.ttf */; };
 		3B04E4B9E18E43D699DD386E /* Trirong-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E687E4DA5C614327AD4D9A41 /* Trirong-ExtraLight.ttf */; };
+		433337390B3E6FCD33636EC9 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D1C094BA4AA274C992E49 /* ExpoModulesProvider.swift */; };
 		493A8FAEEB504F26B18E533E /* Trirong-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 058AB24D891448D69468B613 /* Trirong-Light.ttf */; };
 		5E351E2FAC8749B2966F32B1 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86008489A5034F98B27D90C9 /* Fontisto.ttf */; };
 		69068D6A30EC48B0BFCC2D27 /* Trirong-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA12588A5BDF42E38BB7185B /* Trirong-Black.ttf */; };
 		6B36B2955BE84654BEFC04E0 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454B8A274D814AE4A82F6FF2 /* AntDesign.ttf */; };
+		73E418431D5FB7B9153FB151 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686620376A6D2BDED398EB21 /* ExpoModulesProvider.swift */; };
 		741F3E6045024A8EA072B670 /* Trirong-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E886CA10C26449AB5792224 /* Trirong-SemiBold.ttf */; };
 		74742A6756D84F3DA243AB92 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 625C32B1727A4CE29F2580DB /* EvilIcons.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-MileLog-MileLogTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-MileLog-MileLogTests.a */; };
@@ -91,9 +93,11 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-MileLog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MileLog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		625C32B1727A4CE29F2580DB /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = ../src/assets/fonts/EvilIcons.ttf; sourceTree = "<group>"; };
 		62E0D9EA801B418DBA9DD347 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = ../src/assets/fonts/FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		686620376A6D2BDED398EB21 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MileLog-MileLogTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		6E722B793D384CF4B763B0B7 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = ../src/assets/fonts/MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
 		7510A66656514C74AF34CFC0 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = ../src/assets/fonts/Foundation.ttf; sourceTree = "<group>"; };
 		7C011C72284A4433982EFE8A /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = ../src/assets/fonts/Zocial.ttf; sourceTree = "<group>"; };
+		819D1C094BA4AA274C992E49 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MileLog/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MileLog/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86008489A5034F98B27D90C9 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = ../src/assets/fonts/Fontisto.ttf; sourceTree = "<group>"; };
 		86284D19A0B8455B9D2C533A /* Trirong-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-Italic.ttf"; path = "../src/assets/fonts/Trirong-Italic.ttf"; sourceTree = "<group>"; };
@@ -176,6 +180,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		69C0841D76E7A9E29D3559E2 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				D8A930D1812A854BBDC098F8 /* MileLog */,
+				B1379BD1C1683BCA21D82D2D /* MileLogTests */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +206,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
 				E6AF9B0BD9BC4BC489462218 /* Resources */,
+				69C0841D76E7A9E29D3559E2 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -208,6 +222,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B1379BD1C1683BCA21D82D2D /* MileLogTests */ = {
+			isa = PBXGroup;
+			children = (
+				686620376A6D2BDED398EB21 /* ExpoModulesProvider.swift */,
+			);
+			name = MileLogTests;
+			sourceTree = "<group>";
+		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +239,14 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-MileLog-MileLogTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D8A930D1812A854BBDC098F8 /* MileLog */ = {
+			isa = PBXGroup;
+			children = (
+				819D1C094BA4AA274C992E49 /* ExpoModulesProvider.swift */,
+			);
+			name = MileLog;
 			sourceTree = "<group>";
 		};
 		E6AF9B0BD9BC4BC489462218 /* Resources */ = {
@@ -553,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* MileLogTests.m in Sources */,
+				73E418431D5FB7B9153FB151 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +593,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				433337390B3E6FCD33636EC9 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,7 +618,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MileLogTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -597,6 +629,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MileLog.app/MileLog";
@@ -610,7 +643,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = MileLogTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -621,6 +654,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MileLog.app/MileLog";
@@ -645,6 +679,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MileLog;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -670,6 +705,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MileLog;
 				SWIFT_VERSION = 5.0;
@@ -726,7 +762,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -791,7 +827,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
