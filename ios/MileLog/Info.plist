@@ -35,8 +35,18 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To calculate distance while the app is in the background</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To calculate distance while the app is in the background</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string>To calculate distance while using the app</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
