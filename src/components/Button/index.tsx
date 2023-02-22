@@ -1,6 +1,6 @@
 import React from 'react'
 import {Text, StyleSheet, TouchableOpacity} from 'react-native'
-import {fonts} from '../../styles'
+import {fonts, colors} from '../../styles'
 
 const Button = (props: any) => {
   const {onPress, title, style, textStyle} = props
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'lightblue',
+    backgroundColor: colors.primary,
     borderRadius: 5,
   },
   text: {

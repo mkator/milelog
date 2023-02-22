@@ -3,16 +3,17 @@ import {View, Text, StyleSheet} from 'react-native'
 import getDistance from 'geolib/es/getDistance'
 import * as Location from 'expo-location'
 import * as TaskManager from 'expo-task-manager'
-import {fonts, colors} from '../../styles'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import moment from 'moment'
 import Button from '../../components/Button'
-
-const meterToMile = (meter: number) => (meter ? meter / 1609.344 : 0)
-
-const TASK_NAME = 'BACKGROUND_LOCATION_TASK'
+import {fonts, colors} from '../../styles'
+import {TASK_NAME, STORAGE_KEY} from '../../utils/constants'
+import {meterToMile, formatNumberDigits} from '../../utils/helpers'
 
 const Home: React.FC<PropsWithChildren<{}>> = () => {
   const [, setErrorMsg] = useState(null)
   const [, setUpdate] = useState(null)
+  const [start, setStart] = useState(moment().valueOf())
   const location = useRef(null)
   const distance = useRef(0)
 
@@ -25,12 +26,12 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
     if (location.current && locations) {
       const newDistance = getDistance(
         {
-          lat: location.current?.coords.latitude,
-          lon: location.current?.coords.longitude,
+          lat: location.current?.coords?.latitude,
+          lon: location.current?.coords?.longitude,
         },
         {
-          lat: locations[0].coords.latitude,
-          lon: locations[0].coords.longitude,
+          lat: locations[0].coords?.latitude,
+          lon: locations[0].coords?.longitude,
         },
       )
       distance.current = distance.current + meterToMile(newDistance)
@@ -57,7 +58,6 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
     const foregound = await Location.requestForegroundPermissionsAsync()
     if (foregound.status !== 'granted') {
       setErrorMsg('Permission to access location was denied')
-      console.log('requestPermission => ', foregound.status)
       return false
     }
     const background = await Location.requestBackgroundPermissionsAsync()
@@ -69,6 +69,7 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
   }
 
   const startBackgroundTracking = async () => {
+    setStart(new Date().getTime())
     location.current = null
     const background = await Location.requestBackgroundPermissionsAsync()
     if (background.status !== 'granted') {
@@ -78,9 +79,7 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
 
     // Don't track if it is already running in background
     const hasStarted = await Location.hasStartedLocationUpdatesAsync(TASK_NAME)
-    if (hasStarted) {
-      return
-    }
+    if (hasStarted) return
 
     await Location.startLocationUpdatesAsync(TASK_NAME, {
       showsBackgroundLocationIndicator: true,
@@ -97,6 +96,7 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
 
   // Stop location tracking in background
   const stopBackgroundTracking = async () => {
+    storeData(distance.current)
     const hasStarted = await Location.hasStartedLocationUpdatesAsync(TASK_NAME)
     if (hasStarted) {
       await Location.stopLocationUpdatesAsync(TASK_NAME)
@@ -108,6 +108,53 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
   const reset = async () => {
     distance.current = 0
     setUpdate({})
+  }
+
+  const storeData = async (value: any) => {
+    try {
+      const storedData = await getData()
+      let temp
+      if (storedData) {
+        temp = [
+          ...storedData,
+          {
+            date: moment(start).format('MM-DD-YYYY'),
+            start,
+            stop: moment().valueOf(),
+            mile: value,
+          },
+        ]
+      } else {
+        temp = [
+          {
+            date: moment(start).format('MM-DD-YYYY'),
+            start,
+            stop: moment().valueOf(),
+            mile: value,
+          },
+        ]
+      }
+
+      const jsonValue = JSON.stringify(temp)
+      await AsyncStorage.setItem(STORAGE_KEY, jsonValue)
+    } catch (e) {
+      // handle error
+    }
+  }
+
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem(STORAGE_KEY)
+      if (jsonValue !== null) {
+        // value previously stored
+        const value = JSON.parse(jsonValue)
+        return value
+      }
+    } catch (e) {
+      // error reading value
+    }
+
+    return null
   }
 
   return (
@@ -123,26 +170,26 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
           <Text style={styles.text}>Distance</Text>
         </View>
         <View style={styles.rawDataRight}>
+          <Text style={styles.text}>{`${formatNumberDigits(
+            location.current?.coords?.speed,
+          )} mph`}</Text>
           <Text style={styles.text}>{`${
-            location?.current?.coords?.speed || 0
-          } mph`}</Text>
-          <Text style={styles.text}>{`${
-            location?.current?.coords?.heading || 0
+            location.current?.coords?.heading || 0
           } degree`}</Text>
           <Text style={styles.text}>{`${
-            location?.current?.coords?.longitude || 0
+            location.current?.coords?.longitude || 0
           } degree`}</Text>
           <Text style={styles.text}>{`${
-            location?.current?.coords?.latitude || 0
+            location.current?.coords?.latitude || 0
           } degree`}</Text>
-          <Text style={styles.text}>{`${
-            location?.current?.coords?.altitudeAccuracy || 0
-          } meter`}</Text>
-          <Text style={styles.text}>{`${
-            location?.current?.coords?.accuracy || 0
-          } meter`}</Text>
+          <Text style={styles.text}>{`${formatNumberDigits(
+            location.current?.coords?.altitudeAccuracy,
+          )} meter`}</Text>
+          <Text style={styles.text}>{`${formatNumberDigits(
+            location.current?.coords?.accuracy,
+          )} meter`}</Text>
           <Text style={styles.text}>
-            {(distance?.current).toFixed(5)} miles
+            {formatNumberDigits(distance?.current)} miles
           </Text>
         </View>
       </View>
