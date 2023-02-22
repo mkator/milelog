@@ -15,31 +15,6 @@ import {formatData} from '../../utils/helpers'
 
 const {fullHeight, fullWidth} = screenSize
 
-// const formatData = data => {
-//   if (!data) {
-//     return []
-//   }
-
-//   // Group data by date
-//   const groupedData = data.reduce((acc, item) => {
-//     const date = item.date
-//     if (!acc[date]) {
-//       acc[date] = []
-//     }
-//     acc[date].push(item)
-
-//     return acc
-//   }, {})
-
-//   // Transform grouped data into an array of objects with a data property
-//   const sectionData = Object.entries(groupedData).map(([key, value]) => ({
-//     title: key,
-//     data: value,
-//   }))
-
-//   return sectionData.reverse()
-// }
-
 const History = () => {
   const [data, setData] = useState([])
   const getData = async () => {
