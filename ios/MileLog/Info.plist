@@ -35,8 +35,18 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To calculate distance while the app is in the background</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To calculate distance while the app is in the background</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>To calculate distance while using the app</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,5 +61,42 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Trirong-Black.ttf</string>
+		<string>Trirong-BlackItalic.ttf</string>
+		<string>Trirong-Bold.ttf</string>
+		<string>Trirong-BoldItalic.ttf</string>
+		<string>Trirong-ExtraBold.ttf</string>
+		<string>Trirong-ExtraBoldItalic.ttf</string>
+		<string>Trirong-ExtraLight.ttf</string>
+		<string>Trirong-ExtraLightItalic.ttf</string>
+		<string>Trirong-Italic.ttf</string>
+		<string>Trirong-Light.ttf</string>
+		<string>Trirong-LightItalic.ttf</string>
+		<string>Trirong-Medium.ttf</string>
+		<string>Trirong-MediumItalic.ttf</string>
+		<string>Trirong-Regular.ttf</string>
+		<string>Trirong-SemiBold.ttf</string>
+		<string>Trirong-SemiBoldItalic.ttf</string>
+		<string>Trirong-Thin.ttf</string>
+		<string>Trirong-ThinItalic.ttf</string>
+		<string>AntDesign.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>EvilIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>Fontisto.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Zocial.ttf</string>
+	</array>
 </dict>
 </plist>

@@ -8,12 +8,49 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* MileLogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MileLogTests.m */; };
+		00E7BC89099D4E6BAC2226D8 /* Trirong-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B80E0836D1242CCB17AAFAA /* Trirong-BlackItalic.ttf */; };
+		07BEB8B9898E4364BB459FF6 /* Trirong-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42223C9D004040318A0592E0 /* Trirong-Medium.ttf */; };
+		07FF5315F35B40DEB75B1951 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C011C72284A4433982EFE8A /* Zocial.ttf */; };
+		08FEF9CE86DD4D94BA73DCAF /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A69C286B337F4006A42770E3 /* FontAwesome.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-MileLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-MileLog.a */; };
+		102139CAC2084DA99B9E6A98 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3690E0D502D34D7D8D45AFAF /* OFL.txt */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		14D7D72D3F074BAAAB544C53 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7510A66656514C74AF34CFC0 /* Foundation.ttf */; };
+		16AB102920424B4DA754A2FE /* Trirong-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A062DE469664341BAE14E9F /* Trirong-MediumItalic.ttf */; };
+		2512E1ED736E42B1A9EA5E51 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E722B793D384CF4B763B0B7 /* MaterialCommunityIcons.ttf */; };
+		27B31985857942FAA6313882 /* Trirong-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB70560B84C34F359EC00AC3 /* Trirong-ThinItalic.ttf */; };
+		2FCEF02D34BC43EEBDF13B10 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA4C0D7A688416480C3808C /* Octicons.ttf */; };
+		3A50DAD8CD5E422498F0BBB6 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A706674050AA4DEA9BF3D9D7 /* FontAwesome5_Regular.ttf */; };
+		3A8B9E3CFD0F44D6808613B4 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1662BF7B5E1344E4A5D0E397 /* SimpleLineIcons.ttf */; };
+		3B04E4B9E18E43D699DD386E /* Trirong-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E687E4DA5C614327AD4D9A41 /* Trirong-ExtraLight.ttf */; };
+		433337390B3E6FCD33636EC9 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D1C094BA4AA274C992E49 /* ExpoModulesProvider.swift */; };
+		493A8FAEEB504F26B18E533E /* Trirong-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 058AB24D891448D69468B613 /* Trirong-Light.ttf */; };
+		5E351E2FAC8749B2966F32B1 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86008489A5034F98B27D90C9 /* Fontisto.ttf */; };
+		69068D6A30EC48B0BFCC2D27 /* Trirong-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA12588A5BDF42E38BB7185B /* Trirong-Black.ttf */; };
+		6B36B2955BE84654BEFC04E0 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454B8A274D814AE4A82F6FF2 /* AntDesign.ttf */; };
+		73E418431D5FB7B9153FB151 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686620376A6D2BDED398EB21 /* ExpoModulesProvider.swift */; };
+		741F3E6045024A8EA072B670 /* Trirong-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E886CA10C26449AB5792224 /* Trirong-SemiBold.ttf */; };
+		74742A6756D84F3DA243AB92 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 625C32B1727A4CE29F2580DB /* EvilIcons.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-MileLog-MileLogTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-MileLog-MileLogTests.a */; };
+		7A90E38A93114E9F83A40C7C /* Trirong-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48BCA61ED67E48EB991AE40A /* Trirong-Thin.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8214D432E03A4AACAB84671F /* Trirong-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DC00F7829F94A3CA947505C /* Trirong-ExtraBoldItalic.ttf */; };
+		88DEE7FF79DF49F1885D012C /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3FE191C826A47DFBE75E37C /* FontAwesome5_Brands.ttf */; };
+		8A164789A3F94841B5ADCA8D /* Trirong-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 380968EBF6B44B77A27421B4 /* Trirong-ExtraLightItalic.ttf */; };
+		9D7469DD43484DEE8E850732 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62E0D9EA801B418DBA9DD347 /* FontAwesome5_Solid.ttf */; };
+		9E14EFA29B1E4DBAAEAAD765 /* Trirong-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC1C06014FB14AACAD822B01 /* Trirong-Regular.ttf */; };
+		A943CBD35CCF4A91A2903A13 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 923E44161E0544A28A075113 /* Entypo.ttf */; };
+		B6585BEE7CEF4DD58E767D4F /* Trirong-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA74D2971A364818AA8E79DC /* Trirong-Bold.ttf */; };
+		BDD26A18373340A981EFF570 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A42D8481CEDB4590BFAA2BB3 /* Ionicons.ttf */; };
+		C30990440C024E419E3CB998 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0971C41F60D54A4EAA186BE2 /* Feather.ttf */; };
+		CB6DBD4747444F7D9C08F655 /* Trirong-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1463920BBA047A587078F7A /* Trirong-SemiBoldItalic.ttf */; };
+		D0866C27230C4182A22A75BD /* Trirong-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF288372F4F4537B2D6DB4A /* Trirong-BoldItalic.ttf */; };
+		DF47F36ADC9E49E6A2BE6DD0 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FBCFB16B2514423886E06064 /* MaterialIcons.ttf */; };
+		E92B1E5CE4DA4AEEA4BDFF89 /* Trirong-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCC85C45761D43C0AC31D374 /* Trirong-ExtraBold.ttf */; };
+		FB7B8B49DDFF4EF3935AD088 /* Trirong-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86284D19A0B8455B9D2C533A /* Trirong-Italic.ttf */; };
+		FE67F30008B7431B9A5DB884 /* Trirong-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0906CC3D53F4D9A813B838B /* Trirong-LightItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,20 +67,57 @@
 		00E356EE1AD99517003FC87E /* MileLogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MileLogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MileLogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MileLogTests.m; sourceTree = "<group>"; };
+		058AB24D891448D69468B613 /* Trirong-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-Light.ttf"; path = "../src/assets/fonts/Trirong-Light.ttf"; sourceTree = "<group>"; };
+		0971C41F60D54A4EAA186BE2 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = ../src/assets/fonts/Feather.ttf; sourceTree = "<group>"; };
+		0DC00F7829F94A3CA947505C /* Trirong-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/Trirong-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* MileLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MileLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MileLog/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = MileLog/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MileLog/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MileLog/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MileLog/main.m; sourceTree = "<group>"; };
+		1662BF7B5E1344E4A5D0E397 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = ../src/assets/fonts/SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-MileLog-MileLogTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MileLog-MileLogTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3690E0D502D34D7D8D45AFAF /* OFL.txt */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = OFL.txt; path = ../src/assets/fonts/OFL.txt; sourceTree = "<group>"; };
+		380968EBF6B44B77A27421B4 /* Trirong-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-ExtraLightItalic.ttf"; path = "../src/assets/fonts/Trirong-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		3AA4C0D7A688416480C3808C /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = ../src/assets/fonts/Octicons.ttf; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-MileLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MileLog.debug.xcconfig"; path = "Target Support Files/Pods-MileLog/Pods-MileLog.debug.xcconfig"; sourceTree = "<group>"; };
+		42223C9D004040318A0592E0 /* Trirong-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-Medium.ttf"; path = "../src/assets/fonts/Trirong-Medium.ttf"; sourceTree = "<group>"; };
+		454B8A274D814AE4A82F6FF2 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = ../src/assets/fonts/AntDesign.ttf; sourceTree = "<group>"; };
+		48BCA61ED67E48EB991AE40A /* Trirong-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-Thin.ttf"; path = "../src/assets/fonts/Trirong-Thin.ttf"; sourceTree = "<group>"; };
+		4E886CA10C26449AB5792224 /* Trirong-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-SemiBold.ttf"; path = "../src/assets/fonts/Trirong-SemiBold.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-MileLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MileLog.release.xcconfig"; path = "Target Support Files/Pods-MileLog/Pods-MileLog.release.xcconfig"; sourceTree = "<group>"; };
+		5A062DE469664341BAE14E9F /* Trirong-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-MediumItalic.ttf"; path = "../src/assets/fonts/Trirong-MediumItalic.ttf"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-MileLog-MileLogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MileLog-MileLogTests.debug.xcconfig"; path = "Target Support Files/Pods-MileLog-MileLogTests/Pods-MileLog-MileLogTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5B80E0836D1242CCB17AAFAA /* Trirong-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-BlackItalic.ttf"; path = "../src/assets/fonts/Trirong-BlackItalic.ttf"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-MileLog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MileLog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		625C32B1727A4CE29F2580DB /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = ../src/assets/fonts/EvilIcons.ttf; sourceTree = "<group>"; };
+		62E0D9EA801B418DBA9DD347 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = ../src/assets/fonts/FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		686620376A6D2BDED398EB21 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MileLog-MileLogTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		6E722B793D384CF4B763B0B7 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = ../src/assets/fonts/MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		7510A66656514C74AF34CFC0 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = ../src/assets/fonts/Foundation.ttf; sourceTree = "<group>"; };
+		7C011C72284A4433982EFE8A /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = ../src/assets/fonts/Zocial.ttf; sourceTree = "<group>"; };
+		819D1C094BA4AA274C992E49 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MileLog/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MileLog/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		86008489A5034F98B27D90C9 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = ../src/assets/fonts/Fontisto.ttf; sourceTree = "<group>"; };
+		86284D19A0B8455B9D2C533A /* Trirong-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-Italic.ttf"; path = "../src/assets/fonts/Trirong-Italic.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-MileLog-MileLogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MileLog-MileLogTests.release.xcconfig"; path = "Target Support Files/Pods-MileLog-MileLogTests/Pods-MileLog-MileLogTests.release.xcconfig"; sourceTree = "<group>"; };
+		923E44161E0544A28A075113 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = ../src/assets/fonts/Entypo.ttf; sourceTree = "<group>"; };
+		A42D8481CEDB4590BFAA2BB3 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = ../src/assets/fonts/Ionicons.ttf; sourceTree = "<group>"; };
+		A69C286B337F4006A42770E3 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = ../src/assets/fonts/FontAwesome.ttf; sourceTree = "<group>"; };
+		A706674050AA4DEA9BF3D9D7 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = ../src/assets/fonts/FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		B0906CC3D53F4D9A813B838B /* Trirong-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-LightItalic.ttf"; path = "../src/assets/fonts/Trirong-LightItalic.ttf"; sourceTree = "<group>"; };
+		BA74D2971A364818AA8E79DC /* Trirong-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-Bold.ttf"; path = "../src/assets/fonts/Trirong-Bold.ttf"; sourceTree = "<group>"; };
+		BCC85C45761D43C0AC31D374 /* Trirong-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-ExtraBold.ttf"; path = "../src/assets/fonts/Trirong-ExtraBold.ttf"; sourceTree = "<group>"; };
+		CA12588A5BDF42E38BB7185B /* Trirong-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-Black.ttf"; path = "../src/assets/fonts/Trirong-Black.ttf"; sourceTree = "<group>"; };
+		CB70560B84C34F359EC00AC3 /* Trirong-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-ThinItalic.ttf"; path = "../src/assets/fonts/Trirong-ThinItalic.ttf"; sourceTree = "<group>"; };
+		DDF288372F4F4537B2D6DB4A /* Trirong-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-BoldItalic.ttf"; path = "../src/assets/fonts/Trirong-BoldItalic.ttf"; sourceTree = "<group>"; };
+		E1463920BBA047A587078F7A /* Trirong-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-SemiBoldItalic.ttf"; path = "../src/assets/fonts/Trirong-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		E687E4DA5C614327AD4D9A41 /* Trirong-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-ExtraLight.ttf"; path = "../src/assets/fonts/Trirong-ExtraLight.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F3FE191C826A47DFBE75E37C /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = ../src/assets/fonts/FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		FBCFB16B2514423886E06064 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = ../src/assets/fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
+		FC1C06014FB14AACAD822B01 /* Trirong-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Trirong-Regular.ttf"; path = "../src/assets/fonts/Trirong-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +180,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		69C0841D76E7A9E29D3559E2 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				D8A930D1812A854BBDC098F8 /* MileLog */,
+				B1379BD1C1683BCA21D82D2D /* MileLogTests */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +205,8 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				E6AF9B0BD9BC4BC489462218 /* Resources */,
+				69C0841D76E7A9E29D3559E2 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -137,6 +222,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B1379BD1C1683BCA21D82D2D /* MileLogTests */ = {
+			isa = PBXGroup;
+			children = (
+				686620376A6D2BDED398EB21 /* ExpoModulesProvider.swift */,
+			);
+			name = MileLogTests;
+			sourceTree = "<group>";
+		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +239,56 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-MileLog-MileLogTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D8A930D1812A854BBDC098F8 /* MileLog */ = {
+			isa = PBXGroup;
+			children = (
+				819D1C094BA4AA274C992E49 /* ExpoModulesProvider.swift */,
+			);
+			name = MileLog;
+			sourceTree = "<group>";
+		};
+		E6AF9B0BD9BC4BC489462218 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA12588A5BDF42E38BB7185B /* Trirong-Black.ttf */,
+				5B80E0836D1242CCB17AAFAA /* Trirong-BlackItalic.ttf */,
+				BA74D2971A364818AA8E79DC /* Trirong-Bold.ttf */,
+				DDF288372F4F4537B2D6DB4A /* Trirong-BoldItalic.ttf */,
+				BCC85C45761D43C0AC31D374 /* Trirong-ExtraBold.ttf */,
+				0DC00F7829F94A3CA947505C /* Trirong-ExtraBoldItalic.ttf */,
+				E687E4DA5C614327AD4D9A41 /* Trirong-ExtraLight.ttf */,
+				380968EBF6B44B77A27421B4 /* Trirong-ExtraLightItalic.ttf */,
+				86284D19A0B8455B9D2C533A /* Trirong-Italic.ttf */,
+				058AB24D891448D69468B613 /* Trirong-Light.ttf */,
+				B0906CC3D53F4D9A813B838B /* Trirong-LightItalic.ttf */,
+				42223C9D004040318A0592E0 /* Trirong-Medium.ttf */,
+				5A062DE469664341BAE14E9F /* Trirong-MediumItalic.ttf */,
+				FC1C06014FB14AACAD822B01 /* Trirong-Regular.ttf */,
+				4E886CA10C26449AB5792224 /* Trirong-SemiBold.ttf */,
+				E1463920BBA047A587078F7A /* Trirong-SemiBoldItalic.ttf */,
+				48BCA61ED67E48EB991AE40A /* Trirong-Thin.ttf */,
+				CB70560B84C34F359EC00AC3 /* Trirong-ThinItalic.ttf */,
+				3690E0D502D34D7D8D45AFAF /* OFL.txt */,
+				454B8A274D814AE4A82F6FF2 /* AntDesign.ttf */,
+				923E44161E0544A28A075113 /* Entypo.ttf */,
+				625C32B1727A4CE29F2580DB /* EvilIcons.ttf */,
+				0971C41F60D54A4EAA186BE2 /* Feather.ttf */,
+				A69C286B337F4006A42770E3 /* FontAwesome.ttf */,
+				F3FE191C826A47DFBE75E37C /* FontAwesome5_Brands.ttf */,
+				A706674050AA4DEA9BF3D9D7 /* FontAwesome5_Regular.ttf */,
+				62E0D9EA801B418DBA9DD347 /* FontAwesome5_Solid.ttf */,
+				86008489A5034F98B27D90C9 /* Fontisto.ttf */,
+				7510A66656514C74AF34CFC0 /* Foundation.ttf */,
+				A42D8481CEDB4590BFAA2BB3 /* Ionicons.ttf */,
+				6E722B793D384CF4B763B0B7 /* MaterialCommunityIcons.ttf */,
+				FBCFB16B2514423886E06064 /* MaterialIcons.ttf */,
+				3AA4C0D7A688416480C3808C /* Octicons.ttf */,
+				1662BF7B5E1344E4A5D0E397 /* SimpleLineIcons.ttf */,
+				7C011C72284A4433982EFE8A /* Zocial.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +387,41 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				69068D6A30EC48B0BFCC2D27 /* Trirong-Black.ttf in Resources */,
+				00E7BC89099D4E6BAC2226D8 /* Trirong-BlackItalic.ttf in Resources */,
+				B6585BEE7CEF4DD58E767D4F /* Trirong-Bold.ttf in Resources */,
+				D0866C27230C4182A22A75BD /* Trirong-BoldItalic.ttf in Resources */,
+				E92B1E5CE4DA4AEEA4BDFF89 /* Trirong-ExtraBold.ttf in Resources */,
+				8214D432E03A4AACAB84671F /* Trirong-ExtraBoldItalic.ttf in Resources */,
+				3B04E4B9E18E43D699DD386E /* Trirong-ExtraLight.ttf in Resources */,
+				8A164789A3F94841B5ADCA8D /* Trirong-ExtraLightItalic.ttf in Resources */,
+				FB7B8B49DDFF4EF3935AD088 /* Trirong-Italic.ttf in Resources */,
+				493A8FAEEB504F26B18E533E /* Trirong-Light.ttf in Resources */,
+				FE67F30008B7431B9A5DB884 /* Trirong-LightItalic.ttf in Resources */,
+				07BEB8B9898E4364BB459FF6 /* Trirong-Medium.ttf in Resources */,
+				16AB102920424B4DA754A2FE /* Trirong-MediumItalic.ttf in Resources */,
+				9E14EFA29B1E4DBAAEAAD765 /* Trirong-Regular.ttf in Resources */,
+				741F3E6045024A8EA072B670 /* Trirong-SemiBold.ttf in Resources */,
+				CB6DBD4747444F7D9C08F655 /* Trirong-SemiBoldItalic.ttf in Resources */,
+				7A90E38A93114E9F83A40C7C /* Trirong-Thin.ttf in Resources */,
+				27B31985857942FAA6313882 /* Trirong-ThinItalic.ttf in Resources */,
+				102139CAC2084DA99B9E6A98 /* OFL.txt in Resources */,
+				6B36B2955BE84654BEFC04E0 /* AntDesign.ttf in Resources */,
+				A943CBD35CCF4A91A2903A13 /* Entypo.ttf in Resources */,
+				74742A6756D84F3DA243AB92 /* EvilIcons.ttf in Resources */,
+				C30990440C024E419E3CB998 /* Feather.ttf in Resources */,
+				08FEF9CE86DD4D94BA73DCAF /* FontAwesome.ttf in Resources */,
+				88DEE7FF79DF49F1885D012C /* FontAwesome5_Brands.ttf in Resources */,
+				3A50DAD8CD5E422498F0BBB6 /* FontAwesome5_Regular.ttf in Resources */,
+				9D7469DD43484DEE8E850732 /* FontAwesome5_Solid.ttf in Resources */,
+				5E351E2FAC8749B2966F32B1 /* Fontisto.ttf in Resources */,
+				14D7D72D3F074BAAAB544C53 /* Foundation.ttf in Resources */,
+				BDD26A18373340A981EFF570 /* Ionicons.ttf in Resources */,
+				2512E1ED736E42B1A9EA5E51 /* MaterialCommunityIcons.ttf in Resources */,
+				DF47F36ADC9E49E6A2BE6DD0 /* MaterialIcons.ttf in Resources */,
+				2FCEF02D34BC43EEBDF13B10 /* Octicons.ttf in Resources */,
+				3A8B9E3CFD0F44D6808613B4 /* SimpleLineIcons.ttf in Resources */,
+				07FF5315F35B40DEB75B1951 /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* MileLogTests.m in Sources */,
+				73E418431D5FB7B9153FB151 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +593,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				433337390B3E6FCD33636EC9 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +618,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MileLogTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,6 +629,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MileLog.app/MileLog";
@@ -462,7 +643,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = MileLogTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,6 +654,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MileLog.app/MileLog";
@@ -497,6 +679,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MileLog;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -522,6 +705,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MileLog;
 				SWIFT_VERSION = 5.0;
@@ -578,7 +762,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -643,7 +827,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
