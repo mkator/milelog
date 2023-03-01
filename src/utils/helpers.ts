@@ -1,8 +1,8 @@
-export const formatData = data => {
+export const formatData = (data: any) => {
   if (!data) return []
 
   // Group data by date
-  const groupedData = data.reduce((acc, item) => {
+  const groupedData = data.reduce((acc: any, item: any) => {
     const date = item.date
     if (!acc[date]) {
       acc[date] = []
@@ -21,7 +21,8 @@ export const formatData = data => {
   return sectionData.reverse()
 }
 
-export const meterToMile = (meter: number) => (meter ? meter / 1609.344 : 0)
+export const meterToMile = (meter: number | null | undefined) =>
+  meter ? meter / 1609.344 : 0
 
-export const formatNumberDigits = (number: number) =>
-  number ? number.toFixed(3) : 0
+export const formatNumberDigits = (number: number | null | undefined) =>
+  number ? number.toFixed(3) : '0'
