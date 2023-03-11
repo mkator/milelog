@@ -81,10 +81,16 @@ describe('Should convert meter to mile correctly', () => {
 })
 
 describe('Should format number digits correctly', () => {
-  it('Should display 3 decimals, type string, with valid number', () => {
+  it('Should display default 3 decimals, type string, with valid number', () => {
     const result = formatNumberDigits(1609.344567)
 
     expect(result).toBe('1609.345')
+  })
+
+  it('Should display custom digits, type string, with valid number', () => {
+    const result = formatNumberDigits(1609.344567, 1)
+
+    expect(result).toBe('1609.3')
   })
 
   it('Should be zero, type string, with NaN', () => {

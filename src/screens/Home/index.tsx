@@ -9,6 +9,7 @@ import Button from '../../components/Button'
 import {fonts, colors} from '../../styles'
 import {TASK_NAME, STORAGE_KEY} from '../../utils/constants'
 import {meterToMile, formatNumberDigits} from '../../utils/helpers'
+import Speedometer from './Speedometer'
 
 const Home: React.FC<PropsWithChildren<{}>> = () => {
   const [, setErrorMsg] = useState(null)
@@ -159,9 +160,11 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
 
   return (
     <View style={styles.container}>
+      <Speedometer
+        speed={formatNumberDigits(location.current?.coords?.speed, 0)}
+      />
       <View style={styles.rawDataContainer}>
         <View style={styles.rawDataLeft}>
-          <Text style={styles.text}>Speed</Text>
           <Text style={styles.text}>Heading</Text>
           <Text style={styles.text}>Longtitude</Text>
           <Text style={styles.text}>Latitude</Text>
@@ -170,9 +173,6 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
           <Text style={styles.text}>Distance</Text>
         </View>
         <View style={styles.rawDataRight}>
-          <Text style={styles.text}>{`${formatNumberDigits(
-            location.current?.coords?.speed,
-          )} mph`}</Text>
           <Text style={styles.text}>{`${
             location.current?.coords?.heading || 0
           } degree`}</Text>
@@ -198,6 +198,7 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
           title="Start"
           onPress={startBackgroundTracking}
           style={styles.startBtn}
+          disabled={distance.current !== 0}
         />
         <Button
           title="Stop"

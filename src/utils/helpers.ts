@@ -24,5 +24,7 @@ export const formatData = (data: any) => {
 export const meterToMile = (meter: number | null | undefined) =>
   meter ? meter / 1609.344 : 0
 
-export const formatNumberDigits = (number: number | null | undefined) =>
-  number ? number.toFixed(3) : '0'
+export const formatNumberDigits = (
+  number: number | null | undefined,
+  digits = 3,
+) => (number ? number.toFixed(digits) : '0')
