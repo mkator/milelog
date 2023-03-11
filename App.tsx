@@ -1,12 +1,15 @@
 import React from 'react'
 import {SafeAreaView, StyleSheet} from 'react-native'
 import BottomTabNavigator from './src/navigators/BottomTabNavigator'
+import {ActionSheetProvider} from '@expo/react-native-action-sheet'
 import {colors} from './src/styles'
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <BottomTabNavigator />
+      <ActionSheetProvider>
+        <BottomTabNavigator />
+      </ActionSheetProvider>
     </SafeAreaView>
   )
 }

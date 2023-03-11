@@ -9,6 +9,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {useFocusEffect} from '@react-navigation/native'
 import moment from 'moment'
+import {useActionSheet} from '@expo/react-native-action-sheet'
 import {fonts, fontSize, screenSize, colors} from '../../styles'
 import {STORAGE_KEY} from '../../utils/constants'
 import {formatData} from '../../utils/helpers'
@@ -17,6 +18,8 @@ const {fullHeight, fullWidth} = screenSize
 
 const History = () => {
   const [data, setData] = useState([])
+  const {showActionSheetWithOptions} = useActionSheet()
+
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem(STORAGE_KEY)
@@ -30,13 +33,36 @@ const History = () => {
     }
   }
 
-  const removeData = async () => {
-    try {
-      await AsyncStorage.removeItem(STORAGE_KEY)
-    } catch (error) {
-      // handle error
+  const removeData = () => {
+    const deleteData = async () => {
+      try {
+        await AsyncStorage.removeItem(STORAGE_KEY)
+      } catch (error) {
+        // handle error
+      }
+      setData([])
     }
-    setData([])
+
+    const options = ['Delete All', 'Cancel']
+    const destructiveButtonIndex = 0
+    const cancelButtonIndex = 1
+    showActionSheetWithOptions(
+      {
+        options,
+        cancelButtonIndex,
+        destructiveButtonIndex,
+        showSeparators: true,
+      },
+      (selectedIndex: number) => {
+        switch (selectedIndex) {
+          case destructiveButtonIndex:
+            deleteData()
+            break
+          case cancelButtonIndex:
+          // Canceled
+        }
+      },
+    )
   }
 
   useFocusEffect(

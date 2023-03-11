@@ -4,8 +4,6 @@ import {fonts, colors} from '../../styles'
 
 const Button = (props: any) => {
   const {onPress, title, style, textStyle, disabled} = props
-  console.log('title => ', title)
-  console.log('disabled => ', disabled)
 
   const backgroundStyle = disabled
     ? {backgroundColor: 'lightgrey'}
