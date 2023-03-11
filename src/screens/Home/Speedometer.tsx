@@ -6,7 +6,10 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
 } from 'react-native-reanimated'
-import {fonts, fontSize, screenSize} from '../../styles'
+import {fonts, fontSize, screenSize, colors} from '../../styles'
+
+const {fullWidth} = screenSize
+const speedometerSide = fullWidth * 0.3
 
 const Speedometer = ({speed = 0}: any) => {
   const [, setUpdate] = useState(0)
@@ -21,16 +24,20 @@ const Speedometer = ({speed = 0}: any) => {
   }, [speed])
 
   const animatedStyles = useAnimatedStyle(() => {
+    let backgroundColor = colors.disabled
+    if (speed >= 1 && speed <= 30) {
+      backgroundColor = colors.success
+    } else if (speed >= 31 && speed <= 50) {
+      backgroundColor = colors.tomato
+    } else if (speed >= 51) {
+      backgroundColor = colors.warning
+    }
+
     return {
-      width: 160 + animatedValue.value / 2,
-      height: 160 + animatedValue.value / 2,
-      borderRadius: 80 + animatedValue.value / 2,
-      backgroundColor:
-        speed && speed >= 1 && speed <= 4
-          ? 'lightgreen'
-          : speed && speed >= 5
-          ? 'tomato'
-          : '#DDD',
+      width: speedometerSide + animatedValue.value / 1.1,
+      height: speedometerSide + animatedValue.value / 1.1,
+      borderRadius: speedometerSide / 2 + animatedValue.value / 1.1,
+      backgroundColor,
     }
   })
 
@@ -43,17 +50,11 @@ const Speedometer = ({speed = 0}: any) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
-  },
   speedometer: {
-    width: 160,
-    height: 160,
-    backgroundColor: '#DDD',
-    borderRadius: 80,
+    width: speedometerSide,
+    height: speedometerSide,
+    backgroundColor: colors.disabled,
+    borderRadius: speedometerSide / 2,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
@@ -62,12 +63,10 @@ const styles = StyleSheet.create({
   speedometerText: {
     fontSize: fontSize.xxxl,
     fontFamily: fonts.extraBold,
-    color: '#444',
   },
   speedometerUnits: {
     fontSize: fontSize.l,
     fontFamily: fonts.extraBold,
-    color: '#444',
   },
 })
 
