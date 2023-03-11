@@ -3,16 +3,19 @@ import {View, Text, StyleSheet} from 'react-native'
 import getDistance from 'geolib/es/getDistance'
 import * as Location from 'expo-location'
 import * as TaskManager from 'expo-task-manager'
+import * as Linking from 'expo-linking'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import moment from 'moment'
+import Toast from 'react-native-toast-message'
 import Button from '../../components/Button'
-import {fonts, colors} from '../../styles'
+import {fonts, colors, screenSize} from '../../styles'
 import {TASK_NAME, STORAGE_KEY} from '../../utils/constants'
 import {meterToMile, formatNumberDigits} from '../../utils/helpers'
 import Speedometer from './Speedometer'
 
+const {fullHeight, fullWidth} = screenSize
+
 const Home: React.FC<PropsWithChildren<{}>> = () => {
-  const [, setErrorMsg] = useState(null)
   const [, setUpdate] = useState(null)
   const [start, setStart] = useState(moment().valueOf())
   const location = useRef(null)
@@ -58,12 +61,12 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
   const requestPermission = async () => {
     const foregound = await Location.requestForegroundPermissionsAsync()
     if (foregound.status !== 'granted') {
-      setErrorMsg('Permission to access location was denied')
+      showPermissionErrorMessage()
       return false
     }
     const background = await Location.requestBackgroundPermissionsAsync()
     if (background.status !== 'granted') {
-      setErrorMsg('Permission to access location was denied')
+      showPermissionErrorMessage()
       return false
     }
     return true
@@ -74,7 +77,7 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
     location.current = null
     const background = await Location.requestBackgroundPermissionsAsync()
     if (background.status !== 'granted') {
-      setErrorMsg('Permission to access location was denied')
+      showPermissionErrorMessage()
       return
     }
 
@@ -156,6 +159,17 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
     }
 
     return null
+  }
+
+  const showPermissionErrorMessage = () => {
+    Toast.show({
+      type: 'error',
+      text1: 'Permission to access location was denied',
+      text2: 'Tap here to open Settings - Choose Always',
+      topOffset: fullHeight * 0.03,
+      visibilityTime: 5000,
+      onPress: () => Linking.openSettings(),
+    })
   }
 
   return (
@@ -243,13 +257,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    marginVertical: 20,
+    marginVertical: fullHeight * 0.05,
   },
   startBtn: {
     backgroundColor: 'lightgreen',
+    width: fullWidth * 0.2,
   },
   stopBtn: {
     backgroundColor: colors.warning,
+    width: fullWidth * 0.2,
   },
 })
 
