@@ -9,13 +9,17 @@ const Button = (props: any) => {
     ? {backgroundColor: 'lightgrey'}
     : {backgroundColor: style.backgroundColor || colors.primary}
 
+  const disbaledTextStyle = disabled ? {color: colors.slate} : {color: 'black'}
+
   return (
     <TouchableOpacity
       activeOpacity={0.7}
       onPress={onPress}
       disabled={disabled}
       style={[styles.container, {...style}, backgroundStyle]}>
-      <Text style={[styles.text, {...textStyle}]}>{title}</Text>
+      <Text style={[styles.text, {...textStyle}, disbaledTextStyle]}>
+        {title}
+      </Text>
     </TouchableOpacity>
   )
 }

@@ -17,7 +17,7 @@ import {formatData} from '../../utils/helpers'
 const {fullHeight, fullWidth} = screenSize
 
 const History = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState<any>([])
   const {showActionSheetWithOptions} = useActionSheet()
 
   const getData = async () => {
@@ -53,13 +53,16 @@ const History = () => {
         destructiveButtonIndex,
         showSeparators: true,
       },
-      (selectedIndex: number) => {
+      (selectedIndex: number | undefined) => {
         switch (selectedIndex) {
           case destructiveButtonIndex:
             deleteData()
             break
           case cancelButtonIndex:
-          // Canceled
+            // Canceled
+            break
+          default:
+          // Do nothing
         }
       },
     )
