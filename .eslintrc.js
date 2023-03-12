@@ -7,6 +7,7 @@ module.exports = {
     semi: 0,
     'max-len': ['error', {code: 80}],
     'no-console': 1,
+    'react-hooks/exhaustive-deps': 1,
   },
   overrides: [
     {

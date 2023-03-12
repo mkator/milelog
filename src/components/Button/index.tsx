@@ -3,13 +3,23 @@ import {Text, StyleSheet, TouchableOpacity} from 'react-native'
 import {fonts, colors} from '../../styles'
 
 const Button = (props: any) => {
-  const {onPress, title, style, textStyle} = props
+  const {onPress, title, style, textStyle, disabled} = props
+
+  const backgroundStyle = disabled
+    ? {backgroundColor: 'lightgrey'}
+    : {backgroundColor: style.backgroundColor || colors.primary}
+
+  const disbaledTextStyle = disabled ? {color: colors.slate} : {color: 'black'}
+
   return (
     <TouchableOpacity
       activeOpacity={0.7}
       onPress={onPress}
-      style={[styles.container, {...style}]}>
-      <Text style={[styles.text, {...textStyle}]}>{title}</Text>
+      disabled={disabled}
+      style={[styles.container, {...style}, backgroundStyle]}>
+      <Text style={[styles.text, {...textStyle}, disbaledTextStyle]}>
+        {title}
+      </Text>
     </TouchableOpacity>
   )
 }

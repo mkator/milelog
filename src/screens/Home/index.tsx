@@ -1,19 +1,36 @@
 import React, {type PropsWithChildren, useState, useEffect, useRef} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, StyleSheet} from 'react-native'
 import getDistance from 'geolib/es/getDistance'
 import * as Location from 'expo-location'
 import * as TaskManager from 'expo-task-manager'
+import * as Linking from 'expo-linking'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import moment from 'moment'
+import Toast from 'react-native-toast-message'
 import Button from '../../components/Button'
-import {fonts, colors} from '../../styles'
-import {TASK_NAME, STORAGE_KEY} from '../../utils/constants'
+import {fonts, colors, screenSize} from '../../styles'
+import {TASK_NAME, STORAGE_KEY, TOAST_TYPES} from '../../utils/constants'
 import {meterToMile, formatNumberDigits} from '../../utils/helpers'
+import Speedometer from './Speedometer'
+import LocationDetails from './LocationDetails'
+
+const {fullHeight, fullWidth} = screenSize
+
+const showPermissionErrorMessage = () => {
+  Toast.show({
+    type: TOAST_TYPES.ERROR,
+    text1: 'Permission to access location was denied',
+    text2: 'Tap here to open Settings - Choose Always',
+    topOffset: fullHeight * 0.03,
+    visibilityTime: 5000,
+    onPress: () => Linking.openSettings(),
+  })
+}
 
 const Home: React.FC<PropsWithChildren<{}>> = () => {
-  const [, setErrorMsg] = useState(null)
   const [, setUpdate] = useState(null)
   const [start, setStart] = useState(moment().valueOf())
+  const [stop, setStop] = useState(true)
   const location = useRef(null)
   const distance = useRef(0)
 
@@ -57,23 +74,24 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
   const requestPermission = async () => {
     const foregound = await Location.requestForegroundPermissionsAsync()
     if (foregound.status !== 'granted') {
-      setErrorMsg('Permission to access location was denied')
+      showPermissionErrorMessage()
       return false
     }
     const background = await Location.requestBackgroundPermissionsAsync()
     if (background.status !== 'granted') {
-      setErrorMsg('Permission to access location was denied')
+      showPermissionErrorMessage()
       return false
     }
     return true
   }
 
   const startBackgroundTracking = async () => {
+    setStop(false)
     setStart(new Date().getTime())
     location.current = null
     const background = await Location.requestBackgroundPermissionsAsync()
     if (background.status !== 'granted') {
-      setErrorMsg('Permission to access location was denied')
+      showPermissionErrorMessage()
       return
     }
 
@@ -89,13 +107,14 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
       foregroundService: {
         notificationTitle: 'Location',
         notificationBody: 'Location tracking in background',
-        notificationColor: '#fff',
+        notificationColor: colors.background,
       },
     })
   }
 
   // Stop location tracking in background
   const stopBackgroundTracking = async () => {
+    setStop(true)
     storeData(distance.current)
     const hasStarted = await Location.hasStartedLocationUpdatesAsync(TASK_NAME)
     if (hasStarted) {
@@ -139,6 +158,13 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
       await AsyncStorage.setItem(STORAGE_KEY, jsonValue)
     } catch (e) {
       // handle error
+      Toast.show({
+        type: TOAST_TYPES.ERROR,
+        text1: 'Could not store the current trip',
+        text2: 'Please write down current total distance',
+        topOffset: fullHeight * 0.03,
+        visibilityTime: 5000,
+      })
     }
   }
 
@@ -152,6 +178,13 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
       }
     } catch (e) {
       // error reading value
+      Toast.show({
+        type: TOAST_TYPES.ERROR,
+        text1: 'Could not access the trip history',
+        text2: 'Please try again later',
+        topOffset: fullHeight * 0.03,
+        visibilityTime: 5000,
+      })
     }
 
     return null
@@ -159,45 +192,21 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.rawDataContainer}>
-        <View style={styles.rawDataLeft}>
-          <Text style={styles.text}>Speed</Text>
-          <Text style={styles.text}>Heading</Text>
-          <Text style={styles.text}>Longtitude</Text>
-          <Text style={styles.text}>Latitude</Text>
-          <Text style={styles.text}>Altitude Accuracy</Text>
-          <Text style={styles.text}>Accuracy</Text>
-          <Text style={styles.text}>Distance</Text>
-        </View>
-        <View style={styles.rawDataRight}>
-          <Text style={styles.text}>{`${formatNumberDigits(
-            location.current?.coords?.speed,
-          )} mph`}</Text>
-          <Text style={styles.text}>{`${
-            location.current?.coords?.heading || 0
-          } degree`}</Text>
-          <Text style={styles.text}>{`${
-            location.current?.coords?.longitude || 0
-          } degree`}</Text>
-          <Text style={styles.text}>{`${
-            location.current?.coords?.latitude || 0
-          } degree`}</Text>
-          <Text style={styles.text}>{`${formatNumberDigits(
-            location.current?.coords?.altitudeAccuracy,
-          )} meter`}</Text>
-          <Text style={styles.text}>{`${formatNumberDigits(
-            location.current?.coords?.accuracy,
-          )} meter`}</Text>
-          <Text style={styles.text}>
-            {formatNumberDigits(distance?.current)} miles
-          </Text>
-        </View>
-      </View>
+      <Speedometer
+        speed={
+          stop ? 0 : formatNumberDigits(location.current?.coords?.speed, 0)
+        }
+      />
+      <LocationDetails
+        location={location.current}
+        distance={distance.current}
+      />
       <View style={styles.btnGroup}>
         <Button
           title="Start"
           onPress={startBackgroundTracking}
           style={styles.startBtn}
+          disabled={!stop}
         />
         <Button
           title="Stop"
@@ -219,36 +228,20 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: fonts.mediumItalic,
   },
-  rawDataContainer: {
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  rawDataLeft: {
-    width: '45%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-  },
-  rawDataRight: {
-    width: '45%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-  },
   btnGroup: {
     width: '90%',
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginVertical: 20,
+    marginVertical: fullHeight * 0.05,
   },
   startBtn: {
-    backgroundColor: 'lightgreen',
+    backgroundColor: colors.success,
+    width: fullWidth * 0.3,
   },
   stopBtn: {
-    backgroundColor: colors.warning,
+    backgroundColor: colors.tomato,
+    width: fullWidth * 0.3,
   },
 })
 

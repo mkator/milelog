@@ -9,14 +9,18 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {useFocusEffect} from '@react-navigation/native'
 import moment from 'moment'
+import Toast from 'react-native-toast-message'
+import {useActionSheet} from '@expo/react-native-action-sheet'
 import {fonts, fontSize, screenSize, colors} from '../../styles'
-import {STORAGE_KEY} from '../../utils/constants'
+import {STORAGE_KEY, TOAST_TYPES} from '../../utils/constants'
 import {formatData} from '../../utils/helpers'
 
 const {fullHeight, fullWidth} = screenSize
 
 const History = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState<any>([])
+  const {showActionSheetWithOptions} = useActionSheet()
+
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem(STORAGE_KEY)
@@ -27,16 +31,56 @@ const History = () => {
       }
     } catch (e) {
       // error reading value
+      Toast.show({
+        type: TOAST_TYPES.ERROR,
+        text1: 'Error accessing the trip history',
+        text2: 'Please try again later',
+        topOffset: fullHeight * 0.03,
+        visibilityTime: 5000,
+      })
     }
   }
 
-  const removeData = async () => {
-    try {
-      await AsyncStorage.removeItem(STORAGE_KEY)
-    } catch (error) {
-      // handle error
+  const removeData = () => {
+    const deleteData = async () => {
+      try {
+        await AsyncStorage.removeItem(STORAGE_KEY)
+        setData([])
+      } catch (error) {
+        // handle error
+        Toast.show({
+          type: TOAST_TYPES.ERROR,
+          text1: 'Could not delete the trip history',
+          text2: 'Please try again later',
+          topOffset: fullHeight * 0.03,
+          visibilityTime: 5000,
+        })
+      }
     }
-    setData([])
+
+    const options = ['Delete All', 'Cancel']
+    const destructiveButtonIndex = 0
+    const cancelButtonIndex = 1
+    showActionSheetWithOptions(
+      {
+        options,
+        cancelButtonIndex,
+        destructiveButtonIndex,
+        showSeparators: true,
+      },
+      (selectedIndex: number | undefined) => {
+        switch (selectedIndex) {
+          case destructiveButtonIndex:
+            deleteData()
+            break
+          case cancelButtonIndex:
+            // Canceled
+            break
+          default:
+          // Do nothing
+        }
+      },
+    )
   }
 
   useFocusEffect(
@@ -82,7 +126,7 @@ const History = () => {
               <Text style={styles.title}>
                 {moment.utc(item.stop - item.start).format('HH:mm:ss')}
               </Text>
-              <Text style={styles.title}>{item.mile.toFixed(5)} miles</Text>
+              <Text style={styles.title}>{item.mile.toFixed(1)} miles</Text>
             </View>
           </View>
         )}
@@ -139,12 +183,16 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: fullWidth * 0.15,
+    height: fullWidth * 0.15,
+    borderRadius: (fullWidth * 0.15) / 2,
     backgroundColor: colors.warning,
     bottom: fullHeight * 0.05,
     right: fullWidth * 0.05,
+    shadowOffset: {width: 0, height: 0},
+    shadowOpacity: 0.3,
+    shadowRadius: (fullWidth * 0.15) / 2,
+    elevation: 2,
   },
   btnText: {
     color: colors.background,
