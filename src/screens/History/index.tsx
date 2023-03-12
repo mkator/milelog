@@ -9,9 +9,10 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {useFocusEffect} from '@react-navigation/native'
 import moment from 'moment'
+import Toast from 'react-native-toast-message'
 import {useActionSheet} from '@expo/react-native-action-sheet'
 import {fonts, fontSize, screenSize, colors} from '../../styles'
-import {STORAGE_KEY} from '../../utils/constants'
+import {STORAGE_KEY, TOAST_TYPES} from '../../utils/constants'
 import {formatData} from '../../utils/helpers'
 
 const {fullHeight, fullWidth} = screenSize
@@ -30,6 +31,13 @@ const History = () => {
       }
     } catch (e) {
       // error reading value
+      Toast.show({
+        type: TOAST_TYPES.ERROR,
+        text1: 'Error accessing the trip history',
+        text2: 'Please try again later',
+        topOffset: fullHeight * 0.03,
+        visibilityTime: 5000,
+      })
     }
   }
 
@@ -37,10 +45,17 @@ const History = () => {
     const deleteData = async () => {
       try {
         await AsyncStorage.removeItem(STORAGE_KEY)
+        setData([])
       } catch (error) {
         // handle error
+        Toast.show({
+          type: TOAST_TYPES.ERROR,
+          text1: 'Could not delete the trip history',
+          text2: 'Please try again later',
+          topOffset: fullHeight * 0.03,
+          visibilityTime: 5000,
+        })
       }
-      setData([])
     }
 
     const options = ['Delete All', 'Cancel']
@@ -111,7 +126,7 @@ const History = () => {
               <Text style={styles.title}>
                 {moment.utc(item.stop - item.start).format('HH:mm:ss')}
               </Text>
-              <Text style={styles.title}>{item.mile.toFixed(5)} miles</Text>
+              <Text style={styles.title}>{item.mile.toFixed(1)} miles</Text>
             </View>
           </View>
         )}

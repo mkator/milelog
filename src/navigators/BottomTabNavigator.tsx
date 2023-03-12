@@ -24,7 +24,7 @@ const BottomTabNavigator = () => {
 
             return <Ionicons name={iconName} size={size} color={color} />
           },
-          tabBarActiveTintColor: colors.primary,
+          tabBarActiveTintColor: colors.navy,
           tabBarInactiveTintColor: colors.slate,
           tabBarStyle: {
             backgroundColor: colors.background,

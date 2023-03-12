@@ -1,5 +1,5 @@
 import React, {type PropsWithChildren, useState, useEffect, useRef} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, StyleSheet} from 'react-native'
 import getDistance from 'geolib/es/getDistance'
 import * as Location from 'expo-location'
 import * as TaskManager from 'expo-task-manager'
@@ -9,11 +9,23 @@ import moment from 'moment'
 import Toast from 'react-native-toast-message'
 import Button from '../../components/Button'
 import {fonts, colors, screenSize} from '../../styles'
-import {TASK_NAME, STORAGE_KEY} from '../../utils/constants'
+import {TASK_NAME, STORAGE_KEY, TOAST_TYPES} from '../../utils/constants'
 import {meterToMile, formatNumberDigits} from '../../utils/helpers'
 import Speedometer from './Speedometer'
+import LocationDetails from './LocationDetails'
 
 const {fullHeight, fullWidth} = screenSize
+
+const showPermissionErrorMessage = () => {
+  Toast.show({
+    type: TOAST_TYPES.ERROR,
+    text1: 'Permission to access location was denied',
+    text2: 'Tap here to open Settings - Choose Always',
+    topOffset: fullHeight * 0.03,
+    visibilityTime: 5000,
+    onPress: () => Linking.openSettings(),
+  })
+}
 
 const Home: React.FC<PropsWithChildren<{}>> = () => {
   const [, setUpdate] = useState(null)
@@ -95,7 +107,7 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
       foregroundService: {
         notificationTitle: 'Location',
         notificationBody: 'Location tracking in background',
-        notificationColor: '#fff',
+        notificationColor: colors.background,
       },
     })
   }
@@ -146,6 +158,13 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
       await AsyncStorage.setItem(STORAGE_KEY, jsonValue)
     } catch (e) {
       // handle error
+      Toast.show({
+        type: TOAST_TYPES.ERROR,
+        text1: 'Could not store the current trip',
+        text2: 'Please write down current total distance',
+        topOffset: fullHeight * 0.03,
+        visibilityTime: 5000,
+      })
     }
   }
 
@@ -159,20 +178,16 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
       }
     } catch (e) {
       // error reading value
+      Toast.show({
+        type: TOAST_TYPES.ERROR,
+        text1: 'Could not access the trip history',
+        text2: 'Please try again later',
+        topOffset: fullHeight * 0.03,
+        visibilityTime: 5000,
+      })
     }
 
     return null
-  }
-
-  const showPermissionErrorMessage = () => {
-    Toast.show({
-      type: 'error',
-      text1: 'Permission to access location was denied',
-      text2: 'Tap here to open Settings - Choose Always',
-      topOffset: fullHeight * 0.03,
-      visibilityTime: 5000,
-      onPress: () => Linking.openSettings(),
-    })
   }
 
   return (
@@ -182,36 +197,10 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
           stop ? 0 : formatNumberDigits(location.current?.coords?.speed, 0)
         }
       />
-      <View style={styles.rawDataContainer}>
-        <View style={styles.rawDataLeft}>
-          <Text style={styles.text}>Heading</Text>
-          <Text style={styles.text}>Longtitude</Text>
-          <Text style={styles.text}>Latitude</Text>
-          <Text style={styles.text}>Altitude Accuracy</Text>
-          <Text style={styles.text}>Accuracy</Text>
-          <Text style={styles.text}>Distance</Text>
-        </View>
-        <View style={styles.rawDataRight}>
-          <Text style={styles.text}>{`${
-            location.current?.coords?.heading || 0
-          } degree`}</Text>
-          <Text style={styles.text}>{`${
-            location.current?.coords?.longitude || 0
-          } degree`}</Text>
-          <Text style={styles.text}>{`${
-            location.current?.coords?.latitude || 0
-          } degree`}</Text>
-          <Text style={styles.text}>{`${formatNumberDigits(
-            location.current?.coords?.altitudeAccuracy,
-          )} meter`}</Text>
-          <Text style={styles.text}>{`${formatNumberDigits(
-            location.current?.coords?.accuracy,
-          )} meter`}</Text>
-          <Text style={styles.text}>
-            {formatNumberDigits(distance?.current)} miles
-          </Text>
-        </View>
-      </View>
+      <LocationDetails
+        location={location.current}
+        distance={distance.current}
+      />
       <View style={styles.btnGroup}>
         <Button
           title="Start"
@@ -239,38 +228,20 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: fonts.mediumItalic,
   },
-  rawDataContainer: {
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  rawDataLeft: {
-    width: '45%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-  },
-  rawDataRight: {
-    width: '45%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-  },
   btnGroup: {
     width: '90%',
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignItems: 'center',
     marginVertical: fullHeight * 0.05,
   },
   startBtn: {
-    backgroundColor: 'lightgreen',
-    width: fullWidth * 0.2,
+    backgroundColor: colors.success,
+    width: fullWidth * 0.3,
   },
   stopBtn: {
     backgroundColor: colors.tomato,
-    width: fullWidth * 0.2,
+    width: fullWidth * 0.3,
   },
 })
 
