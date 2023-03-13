@@ -8,17 +8,18 @@ import {
 } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {useFocusEffect} from '@react-navigation/native'
-import moment from 'moment'
 import Toast from 'react-native-toast-message'
+import SwipeableCard from './SwipeableCard'
 import {useActionSheet} from '@expo/react-native-action-sheet'
 import {fonts, fontSize, screenSize, colors} from '../../styles'
 import {STORAGE_KEY, TOAST_TYPES} from '../../utils/constants'
-import {formatData} from '../../utils/helpers'
+import {formatData, IData} from '../../utils/helpers'
 
 const {fullHeight, fullWidth} = screenSize
+const FLOAT_BUTTON_SIDE = fullWidth * 0.14
 
 const History = () => {
-  const [data, setData] = useState<any>([])
+  const [data, setData] = useState<IData[]>([])
   const {showActionSheetWithOptions} = useActionSheet()
 
   const getData = async () => {
@@ -83,14 +84,32 @@ const History = () => {
     )
   }
 
+  const removeItem = async (start: number) => {
+    const temp = await getData()
+    const updatedData = temp.filter((item: any) => item.start !== start)
+    setData(formatData(updatedData))
+    try {
+      const jsonValue = JSON.stringify(updatedData)
+      await AsyncStorage.setItem(STORAGE_KEY, jsonValue)
+    } catch (e) {
+      // handle error
+      Toast.show({
+        type: TOAST_TYPES.ERROR,
+        text1: 'Could not store the current trip',
+        text2: 'Please write down current total distance',
+        topOffset: fullHeight * 0.03,
+        visibilityTime: 5000,
+      })
+    }
+  }
+
   useFocusEffect(
     useCallback(() => {
-      const callGetData = async () => {
+      const updateData = async () => {
         const temp = await getData()
-
         setData(formatData(temp))
       }
-      callGetData()
+      updateData()
     }, []),
   )
 
@@ -107,28 +126,9 @@ const History = () => {
       <SectionList
         sections={data}
         showsVerticalScrollIndicator={false}
-        keyExtractor={(item, index) => item + index}
+        keyExtractor={(item, index) => item.start.toString() + index}
         renderItem={({item}) => (
-          <View style={styles.itemContainer}>
-            <View style={styles.itemLeft}>
-              <Text style={styles.title}>Start:</Text>
-              <Text style={styles.title}>Stop:</Text>
-              <Text style={styles.title}>Total:</Text>
-              <Text style={styles.title}>Distance:</Text>
-            </View>
-            <View style={styles.itemRight}>
-              <Text style={styles.title}>
-                {moment(item.start).format('hh:mm:ss a')}
-              </Text>
-              <Text style={styles.title}>
-                {moment(item.stop).format('hh:mm:ss a')}
-              </Text>
-              <Text style={styles.title}>
-                {moment.utc(item.stop - item.start).format('HH:mm:ss')}
-              </Text>
-              <Text style={styles.title}>{item.mile.toFixed(1)} miles</Text>
-            </View>
-          </View>
+          <SwipeableCard key={item.start} item={item} removeItem={removeItem} />
         )}
         renderSectionHeader={({section: {title}}) => (
           <View style={styles.headerContainer}>
@@ -150,22 +150,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     paddingTop: fullHeight * 0.01,
   },
-  itemContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: colors.card,
-    padding: fullWidth * 0.02,
-    marginVertical: fullHeight * 0.01,
-    width: fullWidth * 0.9,
-    borderRadius: 5,
-  },
-  itemLeft: {
-    alignItems: 'flex-start',
-  },
-  itemRight: {
-    alignItems: 'flex-end',
-  },
   headerContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -183,15 +167,15 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
-    width: fullWidth * 0.15,
-    height: fullWidth * 0.15,
-    borderRadius: (fullWidth * 0.15) / 2,
+    width: FLOAT_BUTTON_SIDE,
+    height: FLOAT_BUTTON_SIDE,
+    borderRadius: FLOAT_BUTTON_SIDE / 2,
     backgroundColor: colors.warning,
     bottom: fullHeight * 0.05,
     right: fullWidth * 0.05,
     shadowOffset: {width: 0, height: 0},
     shadowOpacity: 0.3,
-    shadowRadius: (fullWidth * 0.15) / 2,
+    shadowRadius: FLOAT_BUTTON_SIDE / 2,
     elevation: 2,
   },
   btnText: {

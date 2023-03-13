@@ -1,4 +1,4 @@
-import React, {type PropsWithChildren, useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import {View, StyleSheet} from 'react-native'
 import getDistance from 'geolib/es/getDistance'
 import * as Location from 'expo-location'
@@ -10,11 +10,24 @@ import Toast from 'react-native-toast-message'
 import Button from '../../components/Button'
 import {fonts, colors, screenSize} from '../../styles'
 import {TASK_NAME, STORAGE_KEY, TOAST_TYPES} from '../../utils/constants'
-import {meterToMile, formatNumberDigits} from '../../utils/helpers'
+import {meterToMile} from '../../utils/helpers'
 import Speedometer from './Speedometer'
 import LocationDetails from './LocationDetails'
 
 const {fullHeight, fullWidth} = screenSize
+
+export interface Ilocation {
+  coords: {
+    accuracy: number | undefined | null
+    altitude: number | undefined | null
+    altitudeAccuracy: number | undefined | null
+    heading: number | undefined | null
+    latitude: number | undefined | null
+    longitude: number | undefined | null
+    speed: number | undefined | null
+  }
+  timestamp: number | undefined | null
+}
 
 const showPermissionErrorMessage = () => {
   Toast.show({
@@ -27,14 +40,14 @@ const showPermissionErrorMessage = () => {
   })
 }
 
-const Home: React.FC<PropsWithChildren<{}>> = () => {
-  const [, setUpdate] = useState(null)
+const Home = () => {
+  const [, setUpdate] = useState({})
   const [start, setStart] = useState(moment().valueOf())
   const [stop, setStop] = useState(true)
-  const location = useRef(null)
+  const location = useRef<Ilocation | null>(null)
   const distance = useRef(0)
 
-  TaskManager.defineTask(TASK_NAME, ({data: {locations}, error}) => {
+  TaskManager.defineTask(TASK_NAME, ({data: {locations}, error}: any) => {
     if (error) {
       // check `error.message` for more details.
       return
@@ -192,11 +205,7 @@ const Home: React.FC<PropsWithChildren<{}>> = () => {
 
   return (
     <View style={styles.container}>
-      <Speedometer
-        speed={
-          stop ? 0 : formatNumberDigits(location.current?.coords?.speed, 0)
-        }
-      />
+      <Speedometer speed={stop ? 0 : location.current?.coords?.speed} />
       <LocationDetails
         location={location.current}
         distance={distance.current}

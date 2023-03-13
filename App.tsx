@@ -2,7 +2,7 @@ import React from 'react'
 import {SafeAreaView, StyleSheet} from 'react-native'
 import BottomTabNavigator from './src/navigators/BottomTabNavigator'
 import {ActionSheetProvider} from '@expo/react-native-action-sheet'
-import Toast, {BaseToast, ErrorToast} from 'react-native-toast-message'
+import Toast, {BaseToast} from 'react-native-toast-message'
 import {colors, fontSize, fonts, screenSize} from './src/styles'
 
 const text1Style = {
