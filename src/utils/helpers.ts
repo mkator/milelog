@@ -1,8 +1,25 @@
-export const formatData = (data: any) => {
+export interface IStorageData {
+  date: string
+  start: number
+  stop: number
+  mile: number
+}
+
+export interface IData {
+  title: string
+  data: {
+    date: string
+    start: number
+    stop: number
+    mile: number
+  }[]
+}
+
+export const formatData = (data: IStorageData[]): IData[] => {
   if (!data) return []
 
   // Group data by date
-  const groupedData = data.reduce((acc: any, item: any) => {
+  const groupedData: IStorageData = data.reduce((acc: any, item: any) => {
     const date = item.date
     if (!acc[date]) {
       acc[date] = []

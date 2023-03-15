@@ -2,15 +2,21 @@ import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import {fonts, colors, screenSize} from '../../styles'
 import {formatNumberDigits} from '../../utils/helpers'
+import {type Ilocation} from './index'
 
 const {fullHeight} = screenSize
 
-const LocationDetails = (props: any) => {
+export interface ILocationDetails {
+  location: Ilocation | undefined | null
+  distance: number | undefined | null
+}
+
+const LocationDetails = (props: ILocationDetails) => {
   return (
     <View style={styles.container}>
       <View style={styles.left}>
         <Text style={styles.text}>Heading</Text>
-        <Text style={styles.text}>Longtitude</Text>
+        <Text style={styles.text}>Longitude</Text>
         <Text style={styles.text}>Latitude</Text>
         <Text style={styles.text}>Distance</Text>
       </View>

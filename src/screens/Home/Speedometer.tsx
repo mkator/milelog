@@ -7,12 +7,17 @@ import Animated, {
   useAnimatedStyle,
 } from 'react-native-reanimated'
 import {fonts, fontSize, screenSize, colors} from '../../styles'
+import {formatNumberDigits} from '../../utils/helpers'
 
 const {fullWidth} = screenSize
 const speedometerSide = fullWidth * 0.3
 
-const Speedometer = ({speed = 0}: any) => {
-  const [, setUpdate] = useState(0)
+interface ISpeedometer {
+  speed: number | undefined
+}
+
+const Speedometer = ({speed = 0}: ISpeedometer) => {
+  const [, setUpdate] = useState<number>(0)
   const animatedValue = useSharedValue(speed)
 
   useEffect(() => {
@@ -43,7 +48,7 @@ const Speedometer = ({speed = 0}: any) => {
 
   return (
     <Animated.View style={[styles.speedometer, animatedStyles]}>
-      <Text style={styles.speedometerText}>{speed}</Text>
+      <Text style={styles.speedometerText}>{formatNumberDigits(speed, 0)}</Text>
       <Text style={styles.speedometerUnits}>mph</Text>
     </Animated.View>
   )
