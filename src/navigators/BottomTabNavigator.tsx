@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Home from '../screens/Home'
-import History from '../screens/History'
+import HistoryStackNavigator from './HistoryStackNavigator'
 import {screenSize, colors, fontSize, fonts} from '../styles'
 
 const Tab = createBottomTabNavigator()
@@ -37,7 +37,7 @@ const BottomTabNavigator = () => {
           headerShown: false,
         })}>
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="History" component={History} />
+        <Tab.Screen name="History" component={HistoryStackNavigator} />
       </Tab.Navigator>
     </NavigationContainer>
   )

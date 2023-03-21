@@ -18,7 +18,7 @@ import {formatData, IData} from '../../utils/helpers'
 const {fullHeight, fullWidth} = screenSize
 const FLOAT_BUTTON_SIDE = fullWidth * 0.14
 
-const History = () => {
+const History = ({navigation}) => {
   const [data, setData] = useState<IData[]>([])
   const {showActionSheetWithOptions} = useActionSheet()
 
@@ -121,6 +121,14 @@ const History = () => {
     )
   }
 
+  const showLocation = item => {
+    const {startLocation, stopLocation} = item
+    navigation.navigate('LocationHistory', {
+      startLocation,
+      stopLocation,
+    })
+  }
+
   return (
     <View style={styles.container}>
       <SectionList
@@ -128,7 +136,12 @@ const History = () => {
         showsVerticalScrollIndicator={false}
         keyExtractor={(item, index) => item.start.toString() + index}
         renderItem={({item}) => (
-          <SwipeableCard key={item.start} item={item} removeItem={removeItem} />
+          <SwipeableCard
+            key={item.start}
+            item={item}
+            removeItem={removeItem}
+            showLocation={() => showLocation(item)}
+          />
         )}
         renderSectionHeader={({section: {title}}) => (
           <View style={styles.headerContainer}>

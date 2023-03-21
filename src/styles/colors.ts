@@ -9,4 +9,5 @@ export const colors = {
   slate: '#708090',
   warmLight: '#FDF4DC',
   navy: '#000080',
+  snow: '#FFFDF8',
 }

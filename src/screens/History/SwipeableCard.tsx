@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import moment from 'moment'
 import {fonts, fontSize, screenSize, colors} from '../../styles'
 import {IStorageData} from '../../utils/helpers'
+import Button from '../../components/Button'
 
 const {fullHeight, fullWidth} = screenSize
 const ICON_SIDE = fullWidth * 0.08
@@ -16,9 +17,10 @@ const AnimatedIcon = Animated.createAnimatedComponent(Icon)
 interface ISwipeableCard {
   item: IStorageData | undefined
   removeItem: Function
+  showLocation: Function
 }
 
-const SwipeableCard = ({item, removeItem}: ISwipeableCard) => {
+const SwipeableCard = ({item, removeItem, showLocation}: ISwipeableCard) => {
   const swipeRef = useRef<Swipeable>(null)
 
   if (!item) {
@@ -70,6 +72,7 @@ const SwipeableCard = ({item, removeItem}: ISwipeableCard) => {
             <Text style={styles.title}>Stop:</Text>
             <Text style={styles.title}>Total:</Text>
             <Text style={styles.title}>Distance:</Text>
+            <Text style={styles.title}>Locations:</Text>
           </View>
           <View style={styles.right}>
             <Text style={styles.title}>
@@ -82,6 +85,12 @@ const SwipeableCard = ({item, removeItem}: ISwipeableCard) => {
               {moment.utc(item.stop - item.start).format('HH:mm:ss')}
             </Text>
             <Text style={styles.title}>{item.mile.toFixed(1)} miles</Text>
+            <Button
+              title="Show"
+              onPress={showLocation}
+              style={styles.showBtn}
+              textStyle={styles.showBtnText}
+            />
           </View>
         </Animated.View>
       </Swipeable>
@@ -123,6 +132,13 @@ const styles = StyleSheet.create({
   },
   right: {
     alignItems: 'flex-end',
+  },
+  showBtn: {
+    padding: 2,
+    width: fullWidth * 0.2,
+  },
+  showBtnText: {
+    color: colors.snow,
   },
 })
 
