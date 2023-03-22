@@ -7,9 +7,11 @@ const Button = (props: any) => {
 
   const backgroundStyle = disabled
     ? {backgroundColor: 'lightgrey'}
-    : {backgroundColor: style.backgroundColor || colors.primary}
+    : {backgroundColor: style?.backgroundColor || colors.primary}
 
-  const disbaledTextStyle = disabled ? {color: colors.slate} : {color: 'black'}
+  const disbaledTextStyle = disabled
+    ? {color: colors.slate}
+    : {color: textStyle?.color ? textStyle?.color : 'black'}
 
   return (
     <TouchableOpacity

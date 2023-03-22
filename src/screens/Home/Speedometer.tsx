@@ -32,9 +32,9 @@ const Speedometer = ({speed = 0}: ISpeedometer) => {
     let backgroundColor = colors.disabled
     if (speed >= 1 && speed <= 30) {
       backgroundColor = colors.success
-    } else if (speed >= 31 && speed <= 50) {
+    } else if (speed > 30 && speed <= 50) {
       backgroundColor = colors.tomato
-    } else if (speed >= 51) {
+    } else if (speed > 50) {
       backgroundColor = colors.warning
     }
 

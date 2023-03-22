@@ -44,6 +44,7 @@ const Home = () => {
   const [, setUpdate] = useState({})
   const [start, setStart] = useState(moment().valueOf())
   const [stop, setStop] = useState(true)
+  const [startLocation, setStartLocation] = useState<Location.LocationObject>()
   const location = useRef<Ilocation | null>(null)
   const distance = useRef(0)
 
@@ -108,6 +109,9 @@ const Home = () => {
       return
     }
 
+    const currentLocation = await getCurrentLocation()
+    setStartLocation(currentLocation)
+
     // Don't track if it is already running in background
     const hasStarted = await Location.hasStartedLocationUpdatesAsync(TASK_NAME)
     if (hasStarted) return
@@ -128,7 +132,10 @@ const Home = () => {
   // Stop location tracking in background
   const stopBackgroundTracking = async () => {
     setStop(true)
-    storeData(distance.current)
+
+    const lastLocation = await getCurrentLocation()
+
+    storeData(distance.current, lastLocation)
     const hasStarted = await Location.hasStartedLocationUpdatesAsync(TASK_NAME)
     if (hasStarted) {
       await Location.stopLocationUpdatesAsync(TASK_NAME)
@@ -139,10 +146,14 @@ const Home = () => {
 
   const reset = async () => {
     distance.current = 0
+    location.current = null
     setUpdate({})
   }
 
-  const storeData = async (value: any) => {
+  const storeData = async (
+    value: number,
+    lastLocation: Location.LocationObject | undefined,
+  ) => {
     try {
       const storedData = await getData()
       let temp
@@ -153,6 +164,14 @@ const Home = () => {
             date: moment(start).format('MM-DD-YYYY'),
             start,
             stop: moment().valueOf(),
+            startLocation: {
+              latitude: startLocation?.coords?.latitude,
+              longitude: startLocation?.coords?.longitude,
+            },
+            stopLocation: {
+              latitude: lastLocation?.coords?.latitude,
+              longitude: lastLocation?.coords?.longitude,
+            },
             mile: value,
           },
         ]
@@ -162,6 +181,14 @@ const Home = () => {
             date: moment(start).format('MM-DD-YYYY'),
             start,
             stop: moment().valueOf(),
+            startLocation: {
+              latitude: startLocation?.coords?.latitude,
+              longitude: startLocation?.coords?.longitude,
+            },
+            stopLocation: {
+              latitude: lastLocation?.coords?.latitude,
+              longitude: lastLocation?.coords?.longitude,
+            },
             mile: value,
           },
         ]
@@ -203,6 +230,25 @@ const Home = () => {
     return null
   }
 
+  const getCurrentLocation = async () => {
+    try {
+      const currentLocation = await Location.getCurrentPositionAsync({
+        accuracy: 6,
+        distanceInterval: 1,
+      })
+
+      return currentLocation
+    } catch (error) {
+      // handle error
+      Toast.show({
+        type: TOAST_TYPES.ERROR,
+        text1: 'Could not get current location',
+        topOffset: fullHeight * 0.03,
+        visibilityTime: 2000,
+      })
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Speedometer speed={stop ? 0 : location.current?.coords?.speed} />
@@ -221,6 +267,7 @@ const Home = () => {
           title="Stop"
           onPress={stopBackgroundTracking}
           style={styles.stopBtn}
+          disabled={stop}
         />
       </View>
     </View>
