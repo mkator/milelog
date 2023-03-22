@@ -267,6 +267,7 @@ const Home = () => {
           title="Stop"
           onPress={stopBackgroundTracking}
           style={styles.stopBtn}
+          disabled={stop}
         />
       </View>
     </View>
