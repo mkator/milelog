@@ -4,10 +4,11 @@ import * as Location from 'expo-location'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import {colors, fonts, fontSize, screenSize} from '../../styles'
 import {getAddressFromReversedGeocode} from '../../utils/helpers'
+import {LocationHistoryStackProps} from '../../navigators/HistoryStackNavigator'
 
 const {fullWidth, fullHeight} = screenSize
 
-const LocationInfo = ({route}) => {
+const LocationInfo = ({route}: LocationHistoryStackProps) => {
   const {startLocation, stopLocation} = route.params
   const [startAddress, setStartAddress] =
     useState<Location.LocationGeocodedAddress>()

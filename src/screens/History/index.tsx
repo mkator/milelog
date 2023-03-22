@@ -14,11 +14,12 @@ import {useActionSheet} from '@expo/react-native-action-sheet'
 import {fonts, fontSize, screenSize, colors} from '../../styles'
 import {STORAGE_KEY, TOAST_TYPES} from '../../utils/constants'
 import {formatData, IData} from '../../utils/helpers'
+import {HistoryListStackProps} from '../../navigators/HistoryStackNavigator'
 
 const {fullHeight, fullWidth} = screenSize
 const FLOAT_BUTTON_SIDE = fullWidth * 0.14
 
-const History = ({navigation}) => {
+const History = ({navigation}: HistoryListStackProps) => {
   const [data, setData] = useState<IData[]>([])
   const {showActionSheetWithOptions} = useActionSheet()
 
@@ -133,7 +134,7 @@ const History = ({navigation}) => {
     <View style={styles.container}>
       <SectionList
         sections={data}
-        showsVerticalScrollIndicator={false}
+        showsVerticalScrollIndicator={true}
         keyExtractor={(item, index) => item.start.toString() + index}
         renderItem={({item}) => (
           <SwipeableCard

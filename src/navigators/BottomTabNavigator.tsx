@@ -1,12 +1,23 @@
 import React from 'react'
 import {NavigationContainer} from '@react-navigation/native'
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import {
+  createBottomTabNavigator,
+  BottomTabScreenProps,
+} from '@react-navigation/bottom-tabs'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Home from '../screens/Home'
 import HistoryStackNavigator from './HistoryStackNavigator'
 import {screenSize, colors, fontSize, fonts} from '../styles'
+import {HistoryStackParamList} from './HistoryStackNavigator'
 
-const Tab = createBottomTabNavigator()
+type TabParamList = {
+  Home: undefined
+  History: HistoryStackParamList
+}
+
+export type BottomTabProps = BottomTabScreenProps<TabParamList>
+
+const Tab = createBottomTabNavigator<TabParamList>()
 
 const BottomTabNavigator = () => {
   return (

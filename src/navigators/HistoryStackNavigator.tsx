@@ -1,9 +1,36 @@
 import React from 'react'
-import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import {
+  createNativeStackNavigator,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack'
 import LocationInfo from '../components/LocationInfo'
 import History from '../screens/History'
 
-const Stack = createNativeStackNavigator()
+export type HistoryStackParamList = {
+  HistoryList: undefined
+  LocationHistory: {
+    startLocation: {
+      latitude: number
+      longitude: number
+    }
+    stopLocation: {
+      latitude: number
+      longitude: number
+    }
+  }
+}
+
+export type LocationHistoryStackProps = NativeStackScreenProps<
+  HistoryStackParamList,
+  'LocationHistory'
+>
+
+export type HistoryListStackProps = NativeStackScreenProps<
+  HistoryStackParamList,
+  'HistoryList'
+>
+
+const Stack = createNativeStackNavigator<HistoryStackParamList>()
 
 const HistoryStackNavigator = () => {
   return (
