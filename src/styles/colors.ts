@@ -10,4 +10,5 @@ export const colors = {
   warmLight: '#FDF4DC',
   navy: '#000080',
   snow: '#FFFDF8',
+  rose: '#FF005E',
 }

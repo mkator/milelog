@@ -12,8 +12,8 @@ import Toast from 'react-native-toast-message'
 import SwipeableCard from './SwipeableCard'
 import {useActionSheet} from '@expo/react-native-action-sheet'
 import {fonts, fontSize, screenSize, colors} from '../../styles'
-import {STORAGE_KEY, TOAST_TYPES} from '../../utils/constants'
-import {formatData, IData} from '../../utils/helpers'
+import {STORAGE_HISTORY_KEY, TOAST_TYPES} from '../../utils/constants'
+import {formatData, IData, IStorageData} from '../../utils/helpers'
 import {HistoryListStackProps} from '../../navigators/HistoryStackNavigator'
 
 const {fullHeight, fullWidth} = screenSize
@@ -25,7 +25,7 @@ const History = ({navigation}: HistoryListStackProps) => {
 
   const getData = async () => {
     try {
-      const jsonValue = await AsyncStorage.getItem(STORAGE_KEY)
+      const jsonValue = await AsyncStorage.getItem(STORAGE_HISTORY_KEY)
       if (jsonValue !== null) {
         // value previously stored
         const value = JSON.parse(jsonValue)
@@ -46,7 +46,7 @@ const History = ({navigation}: HistoryListStackProps) => {
   const removeData = () => {
     const deleteData = async () => {
       try {
-        await AsyncStorage.removeItem(STORAGE_KEY)
+        await AsyncStorage.removeItem(STORAGE_HISTORY_KEY)
         setData([])
       } catch (error) {
         // handle error
@@ -91,7 +91,7 @@ const History = ({navigation}: HistoryListStackProps) => {
     setData(formatData(updatedData))
     try {
       const jsonValue = JSON.stringify(updatedData)
-      await AsyncStorage.setItem(STORAGE_KEY, jsonValue)
+      await AsyncStorage.setItem(STORAGE_HISTORY_KEY, jsonValue)
     } catch (e) {
       // handle error
       Toast.show({
@@ -122,7 +122,7 @@ const History = ({navigation}: HistoryListStackProps) => {
     )
   }
 
-  const showLocation = item => {
+  const showLocation = (item: IStorageData) => {
     const {startLocation, stopLocation} = item
     navigation.navigate('LocationHistory', {
       startLocation,

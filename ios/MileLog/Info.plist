@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>To calculate distance while the app is in the background</string>
+	<string>To calculate distance while the app is in usage</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>To calculate distance while the app is in the background</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

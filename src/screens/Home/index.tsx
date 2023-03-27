@@ -9,10 +9,16 @@ import moment from 'moment'
 import Toast from 'react-native-toast-message'
 import Button from '../../components/Button'
 import {fonts, colors, screenSize} from '../../styles'
-import {TASK_NAME, STORAGE_KEY, TOAST_TYPES} from '../../utils/constants'
+import {
+  TASK_NAME,
+  STORAGE_HISTORY_KEY,
+  TOAST_TYPES,
+} from '../../utils/constants'
 import {meterToMile} from '../../utils/helpers'
+import {getCurrentLocation} from './utils'
 import Speedometer from './Speedometer'
 import LocationDetails from './LocationDetails'
+import FavoriteModal from './FavoriteModal'
 
 const {fullHeight, fullWidth} = screenSize
 
@@ -44,6 +50,7 @@ const Home = () => {
   const [, setUpdate] = useState({})
   const [start, setStart] = useState(moment().valueOf())
   const [stop, setStop] = useState(true)
+  const [isModalVisible, setModalVisible] = useState(false)
   const [startLocation, setStartLocation] = useState<Location.LocationObject>()
   const location = useRef<Ilocation | null>(null)
   const distance = useRef(0)
@@ -195,7 +202,7 @@ const Home = () => {
       }
 
       const jsonValue = JSON.stringify(temp)
-      await AsyncStorage.setItem(STORAGE_KEY, jsonValue)
+      await AsyncStorage.setItem(STORAGE_HISTORY_KEY, jsonValue)
     } catch (e) {
       // handle error
       Toast.show({
@@ -210,7 +217,7 @@ const Home = () => {
 
   const getData = async () => {
     try {
-      const jsonValue = await AsyncStorage.getItem(STORAGE_KEY)
+      const jsonValue = await AsyncStorage.getItem(STORAGE_HISTORY_KEY)
       if (jsonValue !== null) {
         // value previously stored
         const value = JSON.parse(jsonValue)
@@ -230,23 +237,8 @@ const Home = () => {
     return null
   }
 
-  const getCurrentLocation = async () => {
-    try {
-      const currentLocation = await Location.getCurrentPositionAsync({
-        accuracy: 6,
-        distanceInterval: 1,
-      })
-
-      return currentLocation
-    } catch (error) {
-      // handle error
-      Toast.show({
-        type: TOAST_TYPES.ERROR,
-        text1: 'Could not get current location',
-        topOffset: fullHeight * 0.03,
-        visibilityTime: 2000,
-      })
-    }
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible)
   }
 
   return (
@@ -269,7 +261,17 @@ const Home = () => {
           style={styles.stopBtn}
           disabled={stop}
         />
+        <Button
+          title="Favorite"
+          onPress={toggleModal}
+          style={styles.favoriteBtn}
+          textStyle={styles.favoriteText}
+        />
       </View>
+      <FavoriteModal
+        toggleModal={toggleModal}
+        isModalVisible={isModalVisible}
+      />
     </View>
   )
 }
@@ -293,11 +295,19 @@ const styles = StyleSheet.create({
   },
   startBtn: {
     backgroundColor: colors.success,
-    width: fullWidth * 0.3,
+    width: fullWidth * 0.25,
   },
   stopBtn: {
     backgroundColor: colors.tomato,
-    width: fullWidth * 0.3,
+    width: fullWidth * 0.25,
+  },
+  favoriteBtn: {
+    backgroundColor: colors.rose,
+    width: fullWidth * 0.25,
+  },
+  favoriteText: {
+    color: colors.snow,
+    fontFamily: fonts.bold,
   },
 })
 
