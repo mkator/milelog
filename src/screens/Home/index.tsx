@@ -243,7 +243,7 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Speedometer speed={stop ? 0 : location.current?.coords?.speed} />
+      <Speedometer speed={stop ? 0 : location.current?.coords?.speed || 0} />
       <LocationDetails
         location={location.current}
         distance={distance.current}
@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
     width: fullWidth * 0.25,
   },
   favoriteBtn: {
-    backgroundColor: colors.rose,
+    backgroundColor: colors.sapphire,
     width: fullWidth * 0.25,
   },
   favoriteText: {

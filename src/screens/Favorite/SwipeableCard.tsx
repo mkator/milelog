@@ -1,13 +1,21 @@
 import React, {useRef} from 'react'
-import {StyleSheet, View, Text, Alert, I18nManager} from 'react-native'
+import {
+  StyleSheet,
+  View,
+  Text,
+  Alert,
+  I18nManager,
+  Platform,
+} from 'react-native'
 import Animated, {FadeInDown} from 'react-native-reanimated'
 import {RectButton} from 'react-native-gesture-handler'
 import {GestureHandlerRootView, Swipeable} from 'react-native-gesture-handler'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import moment from 'moment'
+import * as Linking from 'expo-linking'
 import {fonts, fontSize, screenSize, colors} from '../../styles'
-import {IStorageData} from '../../utils/helpers'
 import Button from '../../components/Button'
+import {IStorageItem} from '.'
 
 const {fullHeight, fullWidth} = screenSize
 const ICON_SIDE = fullWidth * 0.08
@@ -15,12 +23,11 @@ const ICON_SIDE = fullWidth * 0.08
 const AnimatedIcon = Animated.createAnimatedComponent(Icon)
 
 interface ISwipeableCard {
-  item: IStorageData | undefined
+  item: IStorageItem
   removeItem: Function
-  showLocation: Function
 }
 
-const SwipeableCard = ({item, removeItem, showLocation}: ISwipeableCard) => {
+const SwipeableCard = ({item, removeItem}: ISwipeableCard) => {
   const swipeRef = useRef<Swipeable>(null)
 
   if (!item) {
@@ -44,6 +51,23 @@ const SwipeableCard = ({item, removeItem, showLocation}: ISwipeableCard) => {
     swipeRef.current?.close()
   }
 
+  const navigate = (destination: {
+    title: string
+    latitude: number
+    longitude: number
+  }) => {
+    const scheme = Platform.select({ios: 'maps:0,0?q=', android: 'geo:0,0?q='})
+    const latLng = `${destination.latitude},${destination.longitude}`
+    const label = destination.title
+    const url =
+      Platform.select({
+        ios: `${scheme}${label}@${latLng}`,
+        android: `${scheme}${latLng}(${label})`,
+      }) || ''
+
+    Linking.openURL(url)
+  }
+
   return (
     <GestureHandlerRootView>
       <Swipeable
@@ -55,7 +79,7 @@ const SwipeableCard = ({item, removeItem, showLocation}: ISwipeableCard) => {
             {
               text: 'Yes',
               onPress: () => {
-                removeItem(item.start)
+                removeItem(item.timestamp)
               },
             },
             {
@@ -68,28 +92,27 @@ const SwipeableCard = ({item, removeItem, showLocation}: ISwipeableCard) => {
           entering={FadeInDown.duration(400)}
           style={styles.container}>
           <View style={styles.left}>
-            <Text style={styles.title}>Start:</Text>
-            <Text style={styles.title}>Stop:</Text>
-            <Text style={styles.title}>Total:</Text>
-            <Text style={styles.title}>Distance:</Text>
-            <Text style={styles.title}>Locations:</Text>
+            <Text style={styles.title}>{item.title}</Text>
+            <Text style={styles.locationText}>
+              {`${item.latitude}, ${item.longitude}`}
+            </Text>
+            <Text style={styles.locationText}>{item.address}</Text>
+            <Text style={styles.dateText}>
+              {moment(item.timestamp).format('MM-DD-YYYY')}
+            </Text>
           </View>
           <View style={styles.right}>
-            <Text style={styles.title}>
-              {moment(item.start).format('hh:mm:ss a')}
-            </Text>
-            <Text style={styles.title}>
-              {moment(item.stop).format('hh:mm:ss a')}
-            </Text>
-            <Text style={styles.title}>
-              {moment.utc(item.stop - item.start).format('HH:mm:ss')}
-            </Text>
-            <Text style={styles.title}>{item.mile.toFixed(1)} miles</Text>
             <Button
-              title="Show"
-              onPress={showLocation}
-              style={styles.showBtn}
-              textStyle={styles.showBtnText}
+              title="Navigate"
+              onPress={() =>
+                navigate({
+                  title: item.title,
+                  latitude: item.latitude,
+                  longitude: item.longitude,
+                })
+              }
+              style={styles.navigateBtn}
+              textStyle={styles.btnText}
             />
           </View>
         </Animated.View>
@@ -100,10 +123,10 @@ const SwipeableCard = ({item, removeItem, showLocation}: ISwipeableCard) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: colors.card,
+    backgroundColor: colors.sapphire,
     padding: fullWidth * 0.02,
     marginVertical: fullHeight * 0.01,
     width: fullWidth * 0.9,
@@ -125,20 +148,32 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: fontSize.s,
-    fontFamily: fonts.mediumItalic,
+    fontFamily: fonts.bold,
+    color: colors.snow,
   },
   left: {
-    alignItems: 'flex-start',
+    alignSelf: 'flex-start',
+    marginLeft: fullWidth * 0.05,
   },
   right: {
-    alignItems: 'flex-end',
+    alignSelf: 'flex-end',
   },
-  showBtn: {
+  navigateBtn: {
     padding: 2,
     width: fullWidth * 0.2,
-    backgroundColor: colors.sapphire,
+    backgroundColor: colors.snow,
   },
-  showBtnText: {
+  btnText: {
+    color: colors.sapphire,
+  },
+  locationText: {
+    fontSize: fontSize.xs,
+    fontFamily: fonts.lightItalic,
+    color: colors.snow,
+  },
+  dateText: {
+    fontSize: fontSize.xxs,
+    fontFamily: fonts.extraLight,
     color: colors.snow,
   },
 })

@@ -71,7 +71,6 @@ const FavoriteModal = ({toggleModal, isModalVisible}: IFavoriteModal) => {
       const storedFavoriteData = await getFavoriteData()
       if (storedFavoriteData !== null) {
         formattedData = [
-          ...storedFavoriteData,
           {
             title,
             latitude,
@@ -79,6 +78,7 @@ const FavoriteModal = ({toggleModal, isModalVisible}: IFavoriteModal) => {
             address,
             timestamp,
           },
+          ...storedFavoriteData,
         ]
       } else {
         formattedData.push({
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.slate,
+    backgroundColor: colors.sapphire,
     borderRadius: 5,
   },
   input: {
@@ -192,12 +192,12 @@ const styles = StyleSheet.create({
     height: fullHeight * 0.3,
   },
   button: {
-    backgroundColor: colors.success,
+    backgroundColor: colors.snow,
     width: fullWidth * 0.25,
   },
   saveText: {
     fontFamily: fonts.bold,
-    color: colors.snow,
+    color: colors.sapphire,
   },
 })
 

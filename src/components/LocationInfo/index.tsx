@@ -41,8 +41,8 @@ const LocationInfo = ({route}: LocationHistoryStackProps) => {
 
   if (Object.keys(startLocation).length === 0) {
     return (
-      <View style={styles.container}>
-        <Text>Location is unavailable</Text>
+      <View style={styles.unavailableContainer}>
+        <Text style={styles.unavailableText}>Location is unavailable</Text>
       </View>
     )
   }
@@ -57,12 +57,8 @@ const LocationInfo = ({route}: LocationHistoryStackProps) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.left}>
+      <View style={styles.top}>
         <Ionicons name="location-sharp" size={24} color="green" />
-        <View style={styles.column} />
-        <Ionicons name="location-sharp" size={24} color="red" />
-      </View>
-      <View style={styles.right}>
         <View>
           <Text style={styles.text}>
             Lat, Lon: {`${startLocation.latitude}, ${startLocation.longitude}`}
@@ -71,6 +67,9 @@ const LocationInfo = ({route}: LocationHistoryStackProps) => {
             {getAddressFromReversedGeocode(startAddress)}
           </Text>
         </View>
+      </View>
+      <View style={styles.bottom}>
+        <Ionicons name="location-sharp" size={24} color="red" />
         <View>
           <Text style={styles.text}>
             Lat, Lon: {`${stopLocation.latitude}, ${stopLocation.longitude}`}
@@ -87,37 +86,31 @@ const LocationInfo = ({route}: LocationHistoryStackProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: 'column',
+    paddingTop: fullHeight * 0.1,
     backgroundColor: colors.background,
-  },
-  title: {
-    fontSize: fontSize.m,
-    fontFamily: fonts.bold,
   },
   text: {
     fontSize: fontSize.xs,
     fontFamily: fonts.medium,
   },
-  left: {
-    width: fullWidth * 0.1,
-    height: fullHeight * 0.3,
+  top: {
+    paddingHorizontal: fullWidth * 0.05,
+    flexDirection: 'row',
+    marginBottom: fullHeight * 0.1,
+  },
+  bottom: {
+    paddingHorizontal: fullWidth * 0.05,
+    flexDirection: 'row',
+  },
+  unavailableContainer: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    backgroundColor: 'transparent',
   },
-  right: {
-    width: fullWidth * 0.8,
-    height: fullHeight * 0.3,
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    backgroundColor: 'transparent',
-  },
-  column: {
-    width: 2,
-    height: fullHeight * 0.125,
-    backgroundColor: colors.slate,
+  unavailableText: {
+    fontSize: fontSize.m,
+    fontFamily: fonts.medium,
   },
 })
 

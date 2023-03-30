@@ -11,4 +11,5 @@ export const colors = {
   navy: '#000080',
   snow: '#FFFDF8',
   rose: '#FF005E',
+  sapphire: '#0f52ba',
 }

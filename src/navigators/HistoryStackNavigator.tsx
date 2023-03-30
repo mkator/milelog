@@ -5,6 +5,7 @@ import {
 } from '@react-navigation/native-stack'
 import LocationInfo from '../components/LocationInfo'
 import History from '../screens/History'
+import {colors} from '../styles'
 
 export type HistoryStackParamList = {
   HistoryList: undefined
@@ -43,7 +44,12 @@ const HistoryStackNavigator = () => {
       <Stack.Screen
         name="LocationHistory"
         component={LocationInfo}
-        options={{headerTitle: '', headerTransparent: true}}
+        options={{
+          headerTitle: '',
+          headerStyle: {
+            backgroundColor: colors.background,
+          },
+        }}
       />
     </Stack.Navigator>
   )

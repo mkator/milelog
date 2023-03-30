@@ -107,8 +107,8 @@ const History = ({navigation}: HistoryListStackProps) => {
   useFocusEffect(
     useCallback(() => {
       const updateData = async () => {
-        const temp = await getData()
-        setData(formatData(temp))
+        const storageData = await getData()
+        setData(formatData(storageData))
       }
       updateData()
     }, []),
