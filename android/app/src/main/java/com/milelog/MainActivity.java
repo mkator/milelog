@@ -8,6 +8,9 @@ import com.facebook.react.ReactRootView;
 // React Navigation
 import android.os.Bundle;
 
+// react-native-splash-screen >= 0.3.1
+import org.devio.rn.splashscreen.SplashScreen;
+
 public class MainActivity extends ReactActivity {
 
   /**
@@ -22,7 +25,8 @@ public class MainActivity extends ReactActivity {
   // React Navigation
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(null);
+    SplashScreen.show(this); // react-native-splash-screen
+    super.onCreate(savedInstanceState);
   }
 
   /**

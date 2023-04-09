@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {SafeAreaView, StyleSheet} from 'react-native'
 import BottomTabNavigator from './src/navigators/BottomTabNavigator'
 import {ActionSheetProvider} from '@expo/react-native-action-sheet'
 import Toast, {BaseToast} from 'react-native-toast-message'
+import SplashScreen from 'react-native-splash-screen'
 import {colors, fontSize, fonts, screenSize} from './src/styles'
 
 const text1Style = {
@@ -57,6 +58,13 @@ const toastConfig = {
 }
 
 const App = () => {
+  // TODO: temporary behavior
+  useEffect(() => {
+    setTimeout(() => {
+      SplashScreen.hide()
+    }, 1000)
+  })
+
   return (
     <SafeAreaView style={styles.container}>
       <ActionSheetProvider>

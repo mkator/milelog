@@ -69,7 +69,7 @@ const Favorite = () => {
     }, []),
   )
 
-  if (data.length === 0) {
+  if (!data || data.length === 0) {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>No Favorite Place Available</Text>
